@@ -2,11 +2,11 @@
     <div class="container mx-auto px-6">
         <div class="md:flex md:items-center">
             <div class="w-full h-64 md:w-1/2 lg:h-96">
-                <img class="h-full w-full rounded-md object-cover max-w-lg mx-auto" src="https://images.unsplash.com/photo-1578262825743-a4e402caab76?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80" alt="Nike Air">
+                <img class="h-full w-full rounded-md object-cover max-w-lg mx-auto" src="{{product.images[0]}}" alt="{{product.name}}">
             </div>
             <div class="w-full max-w-lg mx-auto mt-5 md:ml-8 md:mt-0 md:w-1/2">
-                <h3 class="text-gray-700 uppercase text-lg">Nike Air</h3>
-                <span class="text-gray-500 mt-3">$125</span>
+                <h3 class="text-gray-700 uppercase text-lg">{{product.name}}</h3>
+                <span class="text-gray-500 mt-3">{{product.price.old}}</span>
                 <hr class="my-3">
                 <div class="mt-2">
                     <label class="text-gray-700 text-sm" for="count">Count:</label>
@@ -68,8 +68,8 @@
                         </button>
                     </div>
                     <div class="px-5 py-3">
-                        <h3 class="text-gray-700 uppercase">Classic watch</h3>
-                        <span class="text-gray-500 mt-2">$12</span>
+                        <h3 class="text-gray-700 uppercase">{{product.name}}</h3>
+                        <span class="text-gray-500 mt-2">{{product.price.old}}</span>
                     </div>
                 </div>
                 <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">

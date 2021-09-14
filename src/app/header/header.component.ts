@@ -6,13 +6,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  showMen = false
+  showWomen = false
   showMenu = false
   constructor(public router: Router) { }
   
   ngOnInit(): void {
   }
-  toggleNavbar(){
-    this.showMenu = !this.showMenu
+  toggleMen(){
+    this.showMen = !this.showMen;
+    this.showWomen = false;
+  }
+  toggleWomen(){
+    this.showMen = false;
+    this.showWomen = !this.showWomen;
+
+  }
+  toggleMenu(){
+    this.showMenu = !this.showMenu;
   }
 
 }
