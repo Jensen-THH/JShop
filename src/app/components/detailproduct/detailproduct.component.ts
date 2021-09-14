@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HEROES } from '../../mock-hero';
+import { ALLPRODUCT } from '../../mock-all-product';
 @Component({
   selector: 'app-detailproduct',
   templateUrl: './detailproduct.component.html',
@@ -15,7 +15,7 @@ export class DetailproductComponent implements OnInit {
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = String(routeParams.get('productId'));
-    this.product = HEROES.find(product => product._id.$oid === productIdFromRoute);
+    this.product = ALLPRODUCT.find(product => product._id.$oid === productIdFromRoute);
   }
 
 }
