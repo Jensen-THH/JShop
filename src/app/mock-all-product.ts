@@ -1,4 +1,4 @@
-import { Hero } from './hero'
+import { Hero } from './service/hero'
 export const ALLPRODUCT: Hero[] = [{
   "_id": {
     "$oid": "60642d872cb404233ca0cb5e"
@@ -5261,32 +5261,6 @@ export const ALLPRODUCT: Hero[] = [{
     "old": "359,000₫"
   },
   "description": "Miêu tả: CHÂN VÁY KHAKI DẰN CHỈ. Đặc tính: Trẻ trung - Năng động. Thể loại: Trang phục dạo phố, thường ngày. Size: S/M/L. Màu sắc: Trắng - Vàng - Đen. Chất liệu: Khaki. Lưu ý: Không ngâm. Số đo mẫu nữ: Chiều cao: 168 cm. Số đo 3 vòng: 83 - 59 - 86 (Mặc size S). - Giặt tay bằng nước lạnh - Không ngâm, không tẩy - Giặt riêng các sản phẩm khác màu - Không vắt.  - Là ủi ở nhiệt độ thấp. Khuyến khích giặt khô.",
-  "category": "Váy",
-  "__v": 0
-}, {
-  "_id": {
-    "$oid": "6064368a20bd941a081ab8be"
-  },
-  "images": [
-    "//product.hstatic.net/200000000131/product/cover_ee6edcc31fa14b12886a61c7675ba3eb_master.jpg",
-    "//product.hstatic.net/200000000131/product/nau-2_86dc47c096544b879ecec17d56227153_master.jpg",
-    "//product.hstatic.net/200000000131/product/nau-1_678d2e854b5b40e0a0a6797915633df6_master.jpg",
-    "//product.hstatic.net/200000000131/product/den-2_f3799babdd9c48239eefeb0c2cf95810_master.jpg",
-    "//product.hstatic.net/200000000131/product/den-1_c88775bf33ab4c88ab77acfb692f0c56_master.jpg",
-    "",
-    "//product.hstatic.net/200000000131/product/cover_ee6edcc31fa14b12886a61c7675ba3eb_master.jpg",
-    "//product.hstatic.net/200000000131/product/nau-2_86dc47c096544b879ecec17d56227153_master.jpg",
-    "//product.hstatic.net/200000000131/product/nau-1_678d2e854b5b40e0a0a6797915633df6_master.jpg",
-    "//product.hstatic.net/200000000131/product/den-2_f3799babdd9c48239eefeb0c2cf95810_master.jpg",
-    "//product.hstatic.net/200000000131/product/den-1_c88775bf33ab4c88ab77acfb692f0c56_master.jpg"
-  ],
-  "name": "Phụ kiện dây nịt da",
-  "sku": " ACC1210101",
-  "price": {
-    "sale": "50,000₫",
-    "old": "0"
-  },
-  "description": "Miêu tả: DÂY NỊT DA. Đặc tính: Trẻ trung - Năng động - Cổ điển - Đa năng. Thể loại: Trang phục dạo phố, công sở, tiệc. Size: Freesize. Chất liệu: Da PU. Màu sắc: Nâu - Đen. Lưu ý: Không ma sát gây bong tróc, Không tiếp xúc nhiệt độ cao. - Giặt tay bằng nước lạnh - Không ngâm, không tẩy - Giặt riêng các sản phẩm khác màu - Không vắt.  - Là ủi ở nhiệt độ thấp. Khuyến khích giặt khô.",
   "category": "Váy",
   "__v": 0
 }, {

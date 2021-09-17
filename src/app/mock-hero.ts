@@ -1,4 +1,4 @@
-import { Hero } from './hero'
+import { Hero } from './service/hero'
 export const HEROES : Hero[] = [
  {
         "_id": {

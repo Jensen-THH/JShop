@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../../hero';
+import { Hero } from '../../service/hero';
 import { HEROES } from '../../mock-hero';
 @Component({
   selector: 'app-category',

@@ -14,4 +14,6 @@ export interface Hero {
     description:string;
     category:string;
     __v:number;
+    count?: number;
+    size?:string;
   }
