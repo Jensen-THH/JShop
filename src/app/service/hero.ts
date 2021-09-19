@@ -15,5 +15,5 @@ export interface Hero {
     category:string;
     __v:number;
     count?: number;
-    size?:string;
+
   }
