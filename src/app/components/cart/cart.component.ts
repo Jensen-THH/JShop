@@ -7,40 +7,85 @@ import { CartService } from '../../service/cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  items : any[] | undefined;
+  items: any[] | undefined;
   tongtien: string | undefined;
-
-  constructor( private cartService :CartService ) { }
+  coupon = 0
+  couponString = ''
+  newtotal = 0
+  t!: number
+  subtotal = 0
+  code_coupon = ''
+  endtotal: any | undefined;
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
     this.items = this.cartService.getItems()
-    console.log(this.items)
+    // console.log(this.items)
     this.total()
+    this.submitCoupon(this.code_coupon)
+  }
+  format(x: any) {
+    return (x + "đ").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
   }
   total() {
-    var t = 0;
-    for (let item of this.items! ) {
-        let price =item.price.sale
-        let newString = price.replace(/,/g, "");
-          let String2 = newString.replace(/₫/g, "");
-           newString = parseInt(String2)
-      t += item.count * newString;
-      console.log(t);
+    let subtotal = 0
+    for (let item of this.items!) {
+      let price = item.price.sale
+      let newString = price.replace(/,/g, "");
+      let String2 = newString.replace(/₫/g, "");
+      newString = parseInt(String2)
+      subtotal += item.count * newString;
+      this.subtotal = subtotal
+      // console.log(this.subtotal);
     }
-      let a = (t + "đ").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-      this.tongtien = a
+    this.tongtien = this.format(this.subtotal)
+    
+    let total = this.format(this.subtotal - this.coupon)
+    this.endtotal = total
   }
-  icr(i:any) {
+  icr(i: any) {
     if (this.items![i].count <= 19) {
-      this.items![i].count+=1
+      this.items![i].count += 1
       this.total()
+      this.submitCoupon(this.code_coupon)
     }
   }
-  dcr(i:any) {
+  dcr(i: any) {
     if (this.items![i].count > 1) {
-      this.items![i].count-=1
+      this.items![i].count -= 1
       this.total()
+      this.submitCoupon(this.code_coupon)
     }
+  }
+  totalprice(price: any, count: any) {
+    let newString = price.replace(/,/g, "");
+    let String2 = newString.replace(/₫/g, "");
+    newString = parseInt(String2)
+    this.t = count * newString;
+    let total = this.format(this.t)
+    return total
+  }
+
+  removeItem(i: any) {
+    this.cartService.removeItem(i)
+    this.total()
+  }
+  submitCoupon(code_coupon: any) {
+    if (code_coupon == '90off') {
+      this.coupon = this.subtotal * 90 / 100
+    }
+    else{
+      this.coupon = 0
+    }
+    this.total()
+    this.couponString = this.format(this.coupon)
+    return this.couponString
+  }
+  removeCoupon(){
+    this.coupon = 0
+    this.code_coupon = ''
+    this.couponString = '0đ'
+    this.total()
   }
 
 }

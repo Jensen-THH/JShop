@@ -8,10 +8,10 @@ import { CartService } from '../../service/cart.service';
   styleUrls: ['./detailproduct.component.css']
 })
 export class DetailproductComponent implements OnInit {
-  sizes: string[] = ['S', 'M', 'L', 'XL']
+  // sizes: string[] = ['S', 'M', 'L', 'XL']
   product: any | undefined;
 
-  selectedOption = this.sizes[1]
+  // selectedOption = this.sizes[1]
   constructor(
     private route: ActivatedRoute,
     private cartService: CartService
@@ -28,7 +28,7 @@ export class DetailproductComponent implements OnInit {
   addToCart(product: any) {
     // product.size = this.selectedOption
     this.cartService.addToCart(product);
-    console.log(this.cartService.getItems())
+    // console.log(product)
     window.alert('Your product has been added to the cart!');
   }
   
