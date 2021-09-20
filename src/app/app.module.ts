@@ -15,6 +15,8 @@ import { SignupComponent } from './signup/signup.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AboutComponent } from './components/about/about.component';
 import { ProductsComponent } from './components/products/products.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { ProductsComponent } from './components/products/products.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    Ng2SearchPipeModule,
+    SlickCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

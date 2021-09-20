@@ -1,6 +1,6 @@
 <main class="my-8">
-  <div class="container mx-auto px-6">
-    <div class="py-16 sm:py-24 lg:py-32">
+  <div class="container mx-auto">
+    <div class="py-16 sm:py-24 lg:py-32  px-6">
       <h1 class="text-center font-extrabold text-5xl text-red-600">...Bộ sưu tập...</h1>
       <div class="max-w-7xl mx-auto ">
         <div class="max-w-2xl mx-auto py-5  lg:max-w-none">
@@ -28,17 +28,19 @@
     </div>
     <div>
       <div class="max-w-2xl mx-auto  lg:max-w-none">
-        <h1 class="text-center font-extrabold text-5xl pb-10 text-red-600">...Sản phầm hot...</h1>
+        <h1 class="text-center font-extrabold text-5xl pb-10 text-red-600">...NEW FASHION MODEL...</h1>
 
-        <h3 class="text-2xl font-extrabold text-gray-900">Fashions</h3>
-        <div class="grid gap-6 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
-          <div *ngFor="let hero of heroes"
-            class="bg-gray-100 w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
-            <a [routerLink]="['/product', hero._id.$oid]">
-              <div class="flex items-end justify-end lg:h-72 h-44 bg-center w-full bg-contain bg-no-repeat"
-                [style.backgroundImage]="'url('+ hero.images[0]+')'">
-                <button
-                  class="p-2 shadow-xl block  rounded-full bg-red-600 text-white mx-5 -mb-4 hover:bg-red-500 focus:outline-none focus:bg-blue-500">
+        <!-- <h3 class="text-2xl font-extrabold text-gray-900">Fashions</h3> -->
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+          <div  ngxSlickItem *ngFor="let item of hotproduct" class="bg-gray-100 w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
+            
+              <div  class="flex div-two-img  lg:h-72 h-44 bg-center  w-full bg-contain bg-no-repeat"
+                >
+                <!-- [style.backgroundImage]="'url('+ item.images[0]+')'" -->
+                <img src="{{ item.images[0]}}" [routerLink]="['/product', item._id.$oid]" class="object-cover max-h-full w-full" alt="0" />
+                <img src="{{ item.images[3]}}" [routerLink]="['/product', item._id.$oid]" class="img-2  object-contain max-h-full w-full" alt="0" />
+                <button (click)="addToCart(item)"
+                  class="z-50 p-2 shadow-xl absolute bottom-0 right-0 xl:bottom-0 xl:right-0 rounded-full bg-red-600 text-white mx-5 -mb-4 hover:bg-red-500 focus:outline-none focus:bg-blue-500">
                   <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     viewBox="0 0 24 24" stroke="currentColor">
                     <path
@@ -47,16 +49,52 @@
                   </svg>
                 </button>
               </div>
-              <div class="px-5 py-3">
-                <h3 class="text-gray-700 lg:text-lg text-xs mt-2 uppercase">{{hero.name}}</h3>
-                <span class="text-gray-500 mt-2">{{hero.price.old}}</span>
+              <div [routerLink]="['/product', item._id.$oid]"  class="hover:bg-red-100 px-5 py-3">
+                <h3 style="max-width: 100ch;" class="text-gray-700 md:text-sm lg:text-base whitespace-nowrap overflow-hidden overflow-ellipsis  text-2xs mt-2 uppercase">{{item.name}}</h3>
+                <span class="text-gray-500 md:text-sm lg:text-base mt-2 text-2xs">{{item.price.sale}}</span>
               </div>
-            </a>
-          </div>
-
+            
+      
         </div>
+      </ngx-slick-carousel>
+      <h1 class="text-center font-extrabold mt-16 text-5xl pb-10 text-red-600">...HOT FASHION MODEL...</h1>
+
+      <!-- <h3 class="text-2xl font-extrabold text-gray-900">Fashions</h3> -->
+      <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+        <div  ngxSlickItem *ngFor="let item of bestproduct" class="bg-gray-100 w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
+          
+            <div  class="flex div-two-img  lg:h-72 h-44 bg-center  w-full bg-contain bg-no-repeat"
+              >
+              <!-- [style.backgroundImage]="'url('+ item.images[0]+')'" -->
+              <img src="{{ item.images[0]}}" [routerLink]="['/product', item._id.$oid]" class="object-cover max-h-full w-full" alt="0" />
+              <img src="{{ item.images[6]}}" [routerLink]="['/product', item._id.$oid]" class="img-2  object-contain max-h-full w-full" alt="0" />
+              <button (click)="addToCart(item)"
+                class="z-50 p-2 shadow-xl absolute bottom-0 right-0 xl:bottom-0 xl:right-0 rounded-full bg-red-600 text-white mx-5 -mb-4 hover:bg-red-500 focus:outline-none focus:bg-blue-500">
+                <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                  </path>
+                </svg>
+              </button>
+            </div>
+            <div [routerLink]="['/product', item._id.$oid]"  class="hover:bg-red-100 px-5 py-3">
+              <h3 style="max-width: 100ch;" class="text-gray-700 md:text-sm lg:text-base whitespace-nowrap overflow-hidden overflow-ellipsis  text-2xs mt-2 uppercase">{{item.name}}</h3>
+              <span class="text-gray-500 md:text-sm lg:text-base mt-2 text-2xs">{{item.price.sale}}</span>
+            </div>
+          
+    
+      </div>
+    </ngx-slick-carousel>
       </div>
 
     </div>
   </div>
 </main>
+<!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+
+  <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+    <img src="{{ slide.img }}" alt="" width="100%">
+  </div>
+
+</ngx-slick-carousel> -->

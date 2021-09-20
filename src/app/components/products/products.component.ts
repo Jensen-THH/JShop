@@ -9,6 +9,7 @@ import { ALLPRODUCT } from '../../mock-all-product';
 })
 export class ProductsComponent implements OnInit {
   products: any | undefined;
+  filterTerm: any | undefined;
   constructor(private route: ActivatedRoute) { 
 
   }

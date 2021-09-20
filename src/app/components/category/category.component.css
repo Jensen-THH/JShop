@@ -1,0 +1,87 @@
+   /* the slides */
+   .slick-slide {
+    margin: 0 20px;
+  }
+  /* the parent */
+  .slick-list {
+    margin: 0 -20px;
+  }
+/* .slick-slider {
+  width: 88%;
+  margin: auto;
+
+}
+
+.slick-prev, .slick-next {
+  height: 45px;
+  width: 40px;
+  color: green !important;
+  z-index: 100;
+  color: unset !important;
+  z-index: 999;
+}
+.slick-prev:before, .slick-next:before{
+  color: green !important;
+} */
+.slick-slider {
+  width: 90%;
+  margin: auto;
+}
+.nav-btn {
+  height: 47px;
+  position: absolute;
+  width: 26px;
+  cursor: pointer;
+  top: 100px !important;
+}
+
+.prev-slide.slick-disabled,
+.next-slide.slick-disabled {
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+.prev-slide {
+  background-color: red !important;
+  height: 50px;
+  width: 50px;
+  left: -33px !important;
+}
+
+.next-slide {
+  background-color: red !important;
+  height: 50px;
+  width: 50px;
+  right: -33px !important;
+}
+
+.prev-slide:hover {
+  background-position: 0px -53px;
+}
+
+.next-slide:hover {
+  background-position: -24px -53px;
+}
+.img-2{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  display: none;
+}
+.div-two-img{
+  position: relative;
+}
+.div-two-img:hover .img-2{
+
+  display: block;
+}
+
+@media screen and (max-width : 767px) {
+  .text-2xs{
+    font-size: 0.5rem;
+  }
+  
+}

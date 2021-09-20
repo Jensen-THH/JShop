@@ -2976,6 +2976,7 @@ export const ALLPRODUCT: Hero[] = [{
   },
   "description": "Miêu tả: Áo sơ mi bo thun. Size: S/M. Đặc tính: Thanh lịch – hiện đại. Thể loại: Trang phục dạo phố - công sở. Màu sắc: Trắng - vàng. Chất liệu: Voan trơn.Số đo mẫu nữ: Chiều cao: 168 cm. Số đo 3 vòng: 83 - 59 - 86 (Mặc size S). - Giặt tay bằng nước lạnh - Không ngâm, không tẩy - Giặt riêng các sản phẩm khác màu - Không vắt.  - Là ủi ở nhiệt độ thấp. Khuyến khích giặt khô.",
   "category": "Áo",
+  "category2":"best",
   "__v": 0
 }, {
   "_id": {
@@ -3325,6 +3326,7 @@ export const ALLPRODUCT: Hero[] = [{
   },
   "description": "Miêu tả: Đầm phối eo màu. Đặc tính: Cổ điển - Thanh lịch - Sang trọng. Thể loại: Trang phục công sở, đi tiệc. Size: S/M/L. Chất liệu: Poly tổng hợp. Màu sắc: Hồng - Đen. Lưu ý: Giặt tay, không ngâm, ủi nhiệt độ thấp. Phơi nắng sau khi giặt để tránh ra màu (đối với đầm hồng). Số đo mẫu nữ: Chiều cao: 168 cm. Số đo 3 vòng: 83 - 59 - 86 (Mặc size S). - Giặt tay bằng nước lạnh - Không ngâm, không tẩy - Giặt riêng các sản phẩm khác màu - Không vắt.  - Là ủi ở nhiệt độ thấp. Khuyến khích giặt khô.",
   "category": "Đầm",
+  "category2":"best",
   "__v": 0
 }, {
   "_id": {
@@ -3887,6 +3889,7 @@ export const ALLPRODUCT: Hero[] = [{
   },
   "description": "Miêu tả: Đầm sơ mi tay dài. Size: S/M/L. Đặc tính: Thanh lịch - hiện đại. Thể loại: Trang phục đi làm. Màu sắc: Đỏ - Xanh đen. Chất liệu: Kaki Poly Twill. Số đo mẫu nữ: Chiều cao: 168 cm. Số đo 3 vòng: 83 - 59 - 86 (Mặc size S). - Giặt tay bằng nước lạnh - Không ngâm, không tẩy - Giặt riêng các sản phẩm khác màu - Không vắt.  - Là ủi ở nhiệt độ thấp. Khuyến khích giặt khô.",
   "category": "Đầm",
+  "category2":"best",
   "__v": 0
 }, {
   "_id": {
@@ -5294,6 +5297,7 @@ export const ALLPRODUCT: Hero[] = [{
   },
   "description": "Miêu tả: Váy Jean. Size: S/M/L. Đặc tính: Trẻ trung - hiện đại. Thể loại: Trang phục dạo phố - Đi làm. Màu sắc: Trắng - Xanh nhạt. Chất liệu: Jeans. Số đo mẫu nữ: Chiều cao: 168 cm. Số đo 3 vòng: 83 - 59 - 86 (Mặc size S). - Giặt tay bằng nước lạnh - Không ngâm, không tẩy - Giặt riêng các sản phẩm khác màu - Không vắt.  - Là ủi ở nhiệt độ thấp. Khuyến khích giặt khô.",
   "category": "Váy",
+  "category2":"best",
   "__v": 0
 }, {
   "_id": {
@@ -7755,6 +7759,7 @@ export const ALLPRODUCT: Hero[] = [{
   },
   "description": "Miêu tả: Quần kaki jean basic xẻ lai. Size: 27/28/29/30/31. Đặc tính: Trẻ trung – thanh lịch. Thể loại: Trang phục công sở - dạo phố. Màu sắc: Đen - Xám. Chất liệu: Denim (không ra màu, thấm hút mồ hôi tốt). Số đo mẫu nữ: Chiều cao: 173 cm. Số đo 3 vòng: 80 - 61 - 88 (Mặc size 27). - Giặt tay bằng nước lạnh - Không ngâm, không tẩy - Giặt riêng các sản phẩm khác màu - Không vắt.  - Là ủi ở nhiệt độ thấp. Khuyến khích giặt khô.",
   "category": "Quần",
+  "category2":"best",
   "__v": 0
 }, {
   "_id": {
@@ -7787,5 +7792,7 @@ export const ALLPRODUCT: Hero[] = [{
   },
   "description": "Miêu tả: QUẦN PATH lai lệch. wash Size: 27/28/29/30/31. Đặc tính: Trẻ trung – năng động. Thể loại: Trang phục dạo phố. Màu sắc: Đen - Xám. Chất liệu: Denim (không ra màu, thấm hút mồ hôi tốt). Số đo mẫu nữ: Chiều cao: 168 cm. Số đo 3 vòng: 83 - 59 - 86 (Mặc size 27). - Giặt tay bằng nước lạnh - Không ngâm, không tẩy - Giặt riêng các sản phẩm khác màu - Không vắt.  - Là ủi ở nhiệt độ thấp. Khuyến khích giặt khô.",
   "category": "Quần",
+  "category2":"best",
   "__v": 0
-}]
+}
+]

@@ -1,31 +1,55 @@
-<div>
-    <div class="max-w-2xl mx-auto  lg:max-w-none">
-    <h1 class="text-center font-extrabold text-5xl pb-10 text-red-600">{{products[0].category}}</h1>
-
-    <h3 class="text-2xl font-extrabold text-gray-900">Fashions</h3>
-    <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
-        <div *ngFor="let hero of products" class="bg-gray-100 w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
-            <a [routerLink]="['/product', hero._id.$oid]">
-                <div class="flex items-end justify-end h-72 bg-center w-full bg-contain bg-no-repeat"
-                    [style.backgroundImage]="'url('+ hero.images[0]+')'">
-                    <button
-                        class="p-2 shadow-xl block  rounded-full bg-red-600 text-white mx-5 -mb-4 hover:bg-red-500 focus:outline-none focus:bg-blue-500">
-                        <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
-                            </path>
-                        </svg>
-                    </button>
-                </div>
-                <div class="px-5 py-3">
-                    <h3 class="text-gray-700 uppercase">{{hero.name}}</h3>
-                    <span class="text-gray-500 mt-2">{{hero.price.old}}</span>
-                </div>
-            </a>
+<div class="container mx-auto">
+    <div class="flex items-center justify-center px-5 py-5">
+        <div class="w-full mx-auto rounded-xl bg-gray-100 shadow-lg p-10 text-gray-800 relative overflow-hidden resize-x min-w-min max-w-3xl"
+            >
+            <div class="relative mt-1">
+                <input type="text"
+                    class="w-full pl-3 pr-10 py-2 border-2 border-gray-200 rounded-xl hover:border-gray-300 focus:outline-none focus:border-blue-500 transition-colors"
+                    placeholder="Search..." [(ngModel)]="filterTerm">
+                <button
+                    class="block w-7 h-7 text-center text-xl leading-0 absolute top-2 right-2 text-gray-400 focus:outline-none hover:text-gray-900 transition-colors"><i
+                        class="mdi mdi-magnify"></i></button>
+            </div>
+            <div class="absolute top-0 left-0 w-full h-2 flex">
+                <div class="h-2 bg-blue-500 flex-1"></div>
+                <div class="h-2 bg-red-500 flex-1"></div>
+                <div class="h-2 bg-yellow-500 flex-1"></div>
+                <div class="h-2 bg-blue-500 flex-1"></div>
+                <div class="h-2 bg-green-500 flex-1"></div>
+                <div class="h-2 bg-red-500 flex-1"></div>
+            </div>
         </div>
-
     </div>
-  </div>
+    <!-- <input class="outline-none text-gray-600 focus:text-blue-600" placeholder="Search..." [(ngModel)]="filterTerm" /> -->
+
+    <div class="mx-auto  lg:max-w-none">
+        <h1 class="text-center font-extrabold text-5xl pb-10 text-red-600">{{products[0].category}}</h1>
+
+        <h3 class="text-2xl font-extrabold text-gray-900">Fashions</h3>
+        <div class="grid gap-6 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
+            <div *ngFor="let hero of products | filter :filterTerm"
+                class="bg-gray-100 w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
+                <a [routerLink]="['/product', hero._id.$oid]">
+                    <div class="flex items-end justify-end h-72 bg-center w-full bg-contain bg-no-repeat"
+                        [style.backgroundImage]="'url('+ hero.images[0]+')'">
+                        <button
+                            class="p-2 shadow-xl block  rounded-full bg-red-600 text-white mx-5 -mb-4 hover:bg-red-500 focus:outline-none focus:bg-blue-500">
+                            <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                                <path
+                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="px-5 py-3">
+                        <h3 class="text-gray-700 uppercase">{{hero.name}}</h3>
+                        <span class="text-gray-500 mt-2">{{hero.price.old}}</span>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
 
 </div>

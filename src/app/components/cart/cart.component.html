@@ -6,32 +6,30 @@
         <table class="w-full text-sm lg:text-base" cellspacing="0">
           <thead>
             <tr class="h-12 uppercase">
-              <th class="hidden md:table-cell"></th>
-              <th class="text-left">Product</th>
+              <th class="md:table-cell text-left text-xs">Image</th>
+              <th class="text-left text-xs">Product</th>
               <!-- <th class="hidden text-right md:table-cell">Size</th> -->
-              <th class="lg:text-right text-left pl-5 lg:pl-0">
-                <span class="lg:hidden" title="Quantity">Qtd</span>
-                <span class="hidden lg:inline">Quantity</span>
+              <th class="text-center">
+                <span class="lg:hidden text-xs" title="Quantity">Qtd</span>
+                <span class="hidden lg:inline text-xs">Quantity</span>
               </th>
-              <th class="hidden text-right md:table-cell">Unit price</th>
-              <th class="text-right">Total price</th>
+              <th class="hidden text-right text-xs md:table-cell">Unit price</th>
+              <th class="text-right text-xs">Total price</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let item of items; ; let i = index">
-              <td  class="hidden pb-4 md:table-cell">
+              <td  class=" pb-4 md:table-cell">
                 <a href="#">
-                  <img src="{{item.images[0]}}" class="w-20 rounded" alt="Thumbnail">
+                  <img src="{{item.images[0]}}" class="lg:w-20 w-12 rounded" alt="Thumbnail">
                 </a>
               </td>
               <td>
-                <a href="#">
-                  <p class="mb-2 md:ml-4">{{item.name}}</p>
-                  <form action="" method="POST">
-                    <button (click)="removeItem(i)" type="submit" class="text-gray-700 md:ml-4">
-                      <small>(Remove item)</small>
+                <a>
+                  <p class="hover:text-green-700">{{item.name}}</p>
+                    <button (click)="removeItem(i)" type="submit" class="text-gray-700">
+                      <small class="hover:text-red-500">(Remove item)</small>
                     </button>
-                  </form>
                 </a>
               </td>
                 <!-- <td class="hidden text-right md:table-cell">
@@ -39,10 +37,12 @@
                   {{item.size}}
                   </span>
                 </td> -->
-              <td class="justify-center md:justify-end md:flex mt-6">
+              <td class="justify-between items-center
+               text-center md:table-cell
+              ">
               
-                <div class=" w-20 mt-3 h-10 flex items-center">
-                  <button (click)="dcr(i)" class="text-gray-500 focus:outline-none focus:text-gray-600">
+                <div class=" w-20 mx-auto h-10 flex items-center justify-between">
+                  <button (click)="dcr(i)" class= "block text-gray-500 focus:outline-none focus:text-gray-600">
                       <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round"
                           stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                           <path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>

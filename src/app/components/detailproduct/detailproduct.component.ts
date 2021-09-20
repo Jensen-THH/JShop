@@ -28,7 +28,6 @@ export class DetailproductComponent implements OnInit {
   addToCart(product: any) {
     // product.size = this.selectedOption
     this.cartService.addToCart(product);
-    // console.log(product)
     window.alert('Your product has been added to the cart!');
   }
   
