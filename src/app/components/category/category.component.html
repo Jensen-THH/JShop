@@ -28,7 +28,7 @@
     </div>
     <div>
       <div class="max-w-2xl mx-auto  lg:max-w-none">
-        <h1 class="text-center font-extrabold text-5xl pb-10 text-red-600">...NEW FASHION MODEL...</h1>
+        <h1 class="text-center font-extrabold text-sm xl:text-5xl pb-10 text-red-600">...NEW FASHION MODEL...</h1>
 
         <!-- <h3 class="text-2xl font-extrabold text-gray-900">Fashions</h3> -->
         <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
@@ -38,7 +38,7 @@
                 >
                 <!-- [style.backgroundImage]="'url('+ item.images[0]+')'" -->
                 <img src="{{ item.images[0]}}" [routerLink]="['/product', item._id.$oid]" class="object-cover max-h-full w-full" alt="0" />
-                <img src="{{ item.images[3]}}" [routerLink]="['/product', item._id.$oid]" class="img-2  object-contain max-h-full w-full" alt="0" />
+                <img src="{{ item.images[3]}}" [routerLink]="['/product', item._id.$oid]" class="img-2  object-cover max-h-full w-full" alt="0" />
                 <button (click)="addToCart(item)"
                   class="z-50 p-2 shadow-xl absolute bottom-0 right-0 xl:bottom-0 xl:right-0 rounded-full bg-red-600 text-white mx-5 -mb-4 hover:bg-red-500 focus:outline-none focus:bg-blue-500">
                   <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -57,7 +57,7 @@
       
         </div>
       </ngx-slick-carousel>
-      <h1 class="text-center font-extrabold mt-16 text-5xl pb-10 text-red-600">...HOT FASHION MODEL...</h1>
+      <h1 class="text-center font-extrabold mt-16 text-sm xl:text-5xl pb-10 text-red-600">...HOT FASHION MODEL...</h1>
 
       <!-- <h3 class="text-2xl font-extrabold text-gray-900">Fashions</h3> -->
       <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
@@ -67,7 +67,7 @@
               >
               <!-- [style.backgroundImage]="'url('+ item.images[0]+')'" -->
               <img src="{{ item.images[0]}}" [routerLink]="['/product', item._id.$oid]" class="object-cover max-h-full w-full" alt="0" />
-              <img src="{{ item.images[6]}}" [routerLink]="['/product', item._id.$oid]" class="img-2  object-contain max-h-full w-full" alt="0" />
+              <img src="{{ item.images[6]}}" [routerLink]="['/product', item._id.$oid]" class="img-2  object-cover max-h-full w-full" alt="0" />
               <button (click)="addToCart(item)"
                 class="z-50 p-2 shadow-xl absolute bottom-0 right-0 xl:bottom-0 xl:right-0 rounded-full bg-red-600 text-white mx-5 -mb-4 hover:bg-red-500 focus:outline-none focus:bg-blue-500">
                 <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
