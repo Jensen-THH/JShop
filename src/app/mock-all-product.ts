@@ -3539,6 +3539,7 @@ export const ALLPRODUCT: Hero[] =
       },
       "description": "Miêu tả: Váy mini đô lưng. Size: S/M/L/XL. Đặc tính: Trẻ trung - hiện đại. Thể loại: Trang phục đi làm và dạo phố. Màu sắc: Đen - Nâu. Chất liệu: 65% Cotton 35% Polyester. Số đo mẫu nữ: Chiều cao: 168 cm. Số đo 3 vòng: 83 - 59 - 86 (Mặc size S). Sản phẩm không kèm phụ kiện thắt lưng. - Giặt tay bằng nước lạnh - Không ngâm, không tẩy - Giặt riêng các sản phẩm khác màu - Không vắt.  - Là ủi ở nhiệt độ thấp. Khuyến khích giặt khô.",
       "category": "Váy",
+      "category2": "best",
       "__v": 0
     },{
       "_id": {
@@ -4228,6 +4229,7 @@ export const ALLPRODUCT: Hero[] =
       },
       "description": "Miêu tả: ĐẦM CARO DÂY THẮT NƠ. Đặc tính: Trẻ trung - Nữ tính - Năng động. Thể loại: Trang phục dạo phố, tiệc. Size: S/M/L. Chất liệu: Cotton. Màu sắc: Caro xanh. Lưu ý: Không ngâm, giặt nhẹ, Ủi nhiệt độ thấp, không tẩy. Số đo mẫu nữ: Chiều cao: 168 cm. Số đo 3 vòng: 83 - 59 - 86 (Mặc size S). - Giặt tay bằng nước lạnh - Không ngâm, không tẩy - Giặt riêng các sản phẩm khác màu - Không vắt.  - Là ủi ở nhiệt độ thấp. Khuyến khích giặt khô.",
       "category": "Đầm",
+      "category2": "best",
       "__v": 0
     },{
       "_id": {
