@@ -1,4 +1,4 @@
-<div class="container mx-auto pb-4">
+<div class="container mx-auto min-h-screen pb-4">
     <div class="flex items-center justify-center px-5 py-5">
         <div
             class="w-full mx-auto rounded-xl bg-gray-100 shadow-sm p-10 text-gray-800 relative overflow-hidden resize-x min-w-min max-w-3xl">
@@ -23,10 +23,13 @@
     <!-- <input class="outline-none text-gray-600 focus:text-blue-600" placeholder="Search..." [(ngModel)]="filterTerm" /> -->
 
     <div class="mx-auto  lg:max-w-none">
-        <h1 class="text-center font-extrabold text-5xl pb-10 text-red-600">{{products[0].category}}</h1>
+        <h1 class="text-center font-extrabold text-3xl pb-10 text-black-600" *ngIf="filterTerm">Kết quả tìm kiếm của: {{filterTerm}}</h1>
+        <div *ngIf="filterTerm;else nofilter">
 
-        <h3 class="text-2xl font-extrabold text-gray-900">Fashions</h3>
-        <div class="grid gap-6 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
+            <div  *ngIf="products.length != 0 ;else noproduct">
+                <h3 class="text-2xl font-extrabold text-gray-900">Có {{(products|filter:filterTerm).length}} kết quả</h3>
+
+        <div class="grid gap-6 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6"  >
             <div *ngFor="let item of products | filter :filterTerm"
                 class="bg-gray-100 w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
                 <div class="flex div-two-img  lg:h-72 h-44 bg-center  w-full bg-contain bg-no-repeat">
@@ -53,8 +56,18 @@
                 </div>
               
             </div>
-
         </div>
+    </div>
+
+     <ng-template #noproduct class="">
+         <h1 class="text-center"> 0 Product!</h1>
+     </ng-template>
+    </div>
+
+        <ng-template #nofilter class="">
+            <h1 class="text-center"> Try search something!</h1>
+        </ng-template>
+
     </div>
 
 </div>

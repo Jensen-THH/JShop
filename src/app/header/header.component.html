@@ -1,80 +1,11 @@
-<!-- 
-<header>
-  <div class="container mx-auto px-6 py-3">
-    <div class="flex items-center justify-between">
-      <div class="hidden w-full text-gray-600 md:flex md:items-center">
-        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M16.2721 10.2721C16.2721 12.4813 14.4813 14.2721 12.2721 14.2721C10.063 14.2721 8.27214 12.4813 8.27214 10.2721C8.27214 8.06298 10.063 6.27212 12.2721 6.27212C14.4813 6.27212 16.2721 8.06298 16.2721 10.2721ZM14.2721 10.2721C14.2721 11.3767 13.3767 12.2721 12.2721 12.2721C11.1676 12.2721 10.2721 11.3767 10.2721 10.2721C10.2721 9.16755 11.1676 8.27212 12.2721 8.27212C13.3767 8.27212 14.2721 9.16755 14.2721 10.2721Z"
-            fill="currentColor" />
-          <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M5.79417 16.5183C2.19424 13.0909 2.05438 7.39409 5.48178 3.79417C8.90918 0.194243 14.6059 0.054383 18.2059 3.48178C21.8058 6.90918 21.9457 12.6059 18.5183 16.2059L12.3124 22.7241L5.79417 16.5183ZM17.0698 14.8268L12.243 19.8965L7.17324 15.0698C4.3733 12.404 4.26452 7.97318 6.93028 5.17324C9.59603 2.3733 14.0268 2.26452 16.8268 4.93028C19.6267 7.59603 19.7355 12.0268 17.0698 14.8268Z"
-            fill="currentColor" />
-        </svg>
-        <span class="mx-1 text-lg">VN</span>
-      </div>
-      <div class="w-full text-gray-700 md:text-center text-2xl font-medium">
-        JShop
-      </div>
-      <div class="flex items-center justify-end w-full">
-        <button routerLink="/cart" class="text-gray-600 focus:outline-none mx-4 sm:mx-0">
-          <svg  class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            viewBox="0 0 24 24" stroke="currentColor">
-            <path
-              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
-            </path>
-          </svg>
-        </button>
-
-        <div class="flex sm:hidden">
-          <button (click)="toggleNavbar()" type="button"
-            class="text-gray-600 hover:text-gray-500 focus:outline-none focus:text-gray-500" aria-label="toggle menu">
-            <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
-              <path fill-rule="evenodd"
-                d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z">
-              </path>
-            </svg>
-
-          </button>
-        </div>
-      </div>
-    </div>
-    <nav [ngClass]="{'hidden': !showMenu, 'flex': showMenu}"
-      class="mx-auto sm:flex sm:justify-center sm:items-center mt-4">
-      <div class="flex flex-col sm:flex-row  mx-auto">
-        <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Home</a>
-        <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Shop</a>
-        <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Categories</a>
-        <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" routerLink="contact">Contact</a>
-        <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" >About</a>
-      </div>
-
-    </nav>
-  </div>
-</header> -->
-<!--
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
--->
 <div class="bg-white z-index-full font-medium fixed top-0 left-0 right-0">
   <!--
     Mobile menu
 
     Off-canvas menu for mobile, show/hide based on off-canvas menu state.
   -->
-  <div [ngClass]="{'hidden': !showMenu}" class="font-medium fixed inset-0 flex z-40 lg:hidden" role="dialog" aria-modal="true">
+  <div [ngClass]="{'hidden': !showMenu}" class="font-medium fixed inset-0 flex z-40 lg:hidden" role="dialog"
+    aria-modal="true">
     <!--
       Off-canvas menu overlay, show/hide based on off-canvas menu state.
 
@@ -99,366 +30,40 @@
     -->
     <div class="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
       <div class="px-4 pt-5 pb-2 flex">
-        <button (click)="toggleMenu()" type="button" class="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400">
+        <button (click)="toggleMenu()" type="button"
+          class="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400">
           <span class="sr-only">Close menu</span>
           <!-- Heroicon name: outline/x -->
-          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
 
       <!-- Links -->
-      <div class="mt-2">
-        <div class="border-b border-gray-200">
-          <div class="-mb-px flex px-4 space-x-8" aria-orientation="horizontal" role="tablist">
-            <!-- Selected: "text-indigo-600 border-indigo-600", Not Selected: "text-gray-900 border-transparent" -->
-            <button (click)="toggleWomen()" id="tabs-1-tab-1" class="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium" aria-controls="tabs-1-panel-1" role="tab" type="button">
-              Women
-            </button>
 
-            <!-- Selected: "text-indigo-600 border-indigo-600", Not Selected: "text-gray-900 border-transparent" -->
-            <button (click)="toggleMen()" id="tabs-1-tab-2" class="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium" aria-controls="tabs-1-panel-2" role="tab" type="button">
-              Men
-            </button>
-          </div>
+      <div class="border-t border-gray-200 py-6 px-4 space-y-6">
+        <div class="flow-root" *ngFor="let item of listCategories">
+          <a (click)="toggleMenu()" [routerLink]="['/products', item.name]" class="-m-2 p-2 block font-medium  text-gray-900 hover:text-red-500">{{item.esname}}</a>
+        </div>
+      </div>
+      <div class="border-t border-gray-200 py-6 px-4 space-y-6">
+        <div class="flow-root">
+          <a (click)="toggleMenu()" routerLink="/contact" class="-m-2 p-2 block font-medium  text-gray-900 hover:text-red-500">Contact</a>
         </div>
 
-        <!-- 'Women' tab panel, show/hide based on tab state. -->
-        <div [ngClass]="{'hidden': !showWomen}"  id="tabs-1-panel-1"  class="pt-10 pb-8 px-4 space-y-10" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
-          <div class="grid grid-cols-2 gap-x-4">
-            <div class="group relative text-lg">
-              <div class="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
-                <img src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg" alt="Models sitting back to back, wearing Basic Tee in black and bone." class="object-center object-cover">
-              </div>
-              <a href="#" class="mt-6 block font-medium text-gray-900">
-                <span class="absolute z-10 inset-0" aria-hidden="true"></span>
-                New Arrivals
-              </a>
-              <p aria-hidden="true" class="mt-1">Shop now</p>
-            </div>
-
-            <div class="group relative text-lg">
-              <div class="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
-                <img src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg" alt="Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees." class="object-center object-cover">
-              </div>
-              <a href="#" class="mt-6 block font-medium text-gray-900">
-                <span class="absolute z-10 inset-0" aria-hidden="true"></span>
-                Basic Tees
-              </a>
-              <p aria-hidden="true" class="mt-1">Shop now</p>
-            </div>
-          </div>
-
-          <div>
-            <p id="women-clothing-heading-mobile" class="font-medium text-gray-900">
-              Clothing
-            </p>
-            <ul role="list" aria-labelledby="women-clothing-heading-mobile" class="mt-6 flex flex-col space-y-6">
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Tops
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Dresses
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Pants
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Denim
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Sweaters
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  T-Shirts
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Jackets
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Activewear
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Browse All
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <p id="women-accessories-heading-mobile" class="font-medium text-gray-900">
-              Accessories
-            </p>
-            <ul role="list" aria-labelledby="women-accessories-heading-mobile" class="mt-6 flex flex-col space-y-6">
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Watches
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Wallets
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Bags
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Sunglasses
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Hats
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Belts
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <p id="women-brands-heading-mobile" class="font-medium text-gray-900">
-              Brands
-            </p>
-            <ul role="list" aria-labelledby="women-brands-heading-mobile" class="mt-6 flex flex-col space-y-6">
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Full Nelson
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  My Way
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Re-Arranged
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Counterfeit
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Significant Other
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- 'Men' tab panel, show/hide based on tab state. -->
-        <div [ngClass]="{'hidden': !showMen}" id="tabs-1-panel-2" class="pt-10 pb-8 px-4 space-y-10" aria-labelledby="tabs-1-tab-2" role="tabpanel" tabindex="0">
-          <div class="grid grid-cols-2 gap-x-4">
-            <div class="group relative text-lg">
-              <div class="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
-                <img src="https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg" alt="Drawstring top with elastic loop closure and textured interior padding." class="object-center object-cover">
-              </div>
-              <a href="#" class="mt-6 block font-medium text-gray-900">
-                <span class="absolute z-10 inset-0" aria-hidden="true"></span>
-                New Arrivals
-              </a>
-              <p aria-hidden="true" class="mt-1">Shop now</p>
-            </div>
-
-            <div class="group relative text-lg">
-              <div class="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
-                <img src="https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg" alt="Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt." class="object-center object-cover">
-              </div>
-              <a href="#" class="mt-6 block font-medium text-gray-900">
-                <span class="absolute z-10 inset-0" aria-hidden="true"></span>
-                Artwork Tees
-              </a>
-              <p aria-hidden="true" class="mt-1">Shop now</p>
-            </div>
-          </div>
-
-          <div>
-            <p id="men-clothing-heading-mobile" class="font-medium text-gray-900">
-              Clothing
-            </p>
-            <ul role="list" aria-labelledby="men-clothing-heading-mobile" class="mt-6 flex flex-col space-y-6">
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Tops
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Pants
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Sweaters
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  T-Shirts
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Jackets
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Activewear
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Browse All
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <p id="men-accessories-heading-mobile" class="font-medium text-gray-900">
-              Accessories
-            </p>
-            <ul role="list" aria-labelledby="men-accessories-heading-mobile" class="mt-6 flex flex-col space-y-6">
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Watches
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Wallets
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Bags
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Sunglasses
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Hats
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Belts
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <p id="men-brands-heading-mobile" class="font-medium text-gray-900">
-              Brands
-            </p>
-            <ul role="list" aria-labelledby="men-brands-heading-mobile" class="mt-6 flex flex-col space-y-6">
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Re-Arranged
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Counterfeit
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  Full Nelson
-                </a>
-              </li>
-
-              <li class="flow-root">
-                <a href="#" class="-m-2 p-2 block text-gray-500">
-                  My Way
-                </a>
-              </li>
-            </ul>
-          </div>
+        <div class="flow-root">
+          <a (click)="toggleMenu()" routerLink="/about" class="-m-2 p-2 block font-medium text-gray-900 hover:text-red-500">About us</a>
         </div>
       </div>
 
       <div class="border-t border-gray-200 py-6 px-4 space-y-6">
         <div class="flow-root">
-          <a routerLink="/contact" class="-m-2 p-2 block font-medium  text-gray-900 hover:text-red-500">Contact</a>
-        </div>
-
-        <div class="flow-root">
-          <a routerLink="/about" class="-m-2 p-2 block font-medium text-gray-900 hover:text-red-500">About us</a>
-        </div>
-      </div>
-
-      <div class="border-t border-gray-200 py-6 px-4 space-y-6">
-        <div class="flow-root">
-          <a routerLink="/login" class="-m-2 p-2 block font-medium text-gray-900 hover:text-red-500" >Sign in</a>
+          <a (click)="toggleMenu()" routerLink="/login" class="-m-2 p-2 block font-medium text-gray-900 hover:text-red-500">Sign in</a>
         </div>
         <div class="flow-root">
-          <a routerLink="/signup" class="-m-2 p-2 block font-medium text-gray-900 hover:text-red-500">Create account</a>
+          <a (click)="toggleMenu()" routerLink="/signup" class="-m-2 p-2 block font-medium text-gray-900 hover:text-red-500">Create account</a>
         </div>
       </div>
 
@@ -474,7 +79,7 @@
     </div>
   </div>
 
-  <header class="relative bg-white z-50 font-medium " >
+  <header class="relative bg-white z-50 font-medium ">
     <!-- <p class="bg-indigo-600 h-10 flex items-center justify-center text-lg font-medium text-white px-4 sm:px-6 lg:px-8">
       Get free delivery on orders over $100
     </p> -->
@@ -483,10 +88,11 @@
       <div class="border-b border-gray-200">
         <div class="h-16 flex items-center">
           <!-- Mobile menu toggle, controls the 'mobileMenuOpen' state. -->
-          <button (click)="toggleMenu()" type="button"  class="bg-white p-2 rounded-md text-gray-400 lg:hidden">
+          <button (click)="toggleMenu()" type="button" class="bg-white p-2 rounded-md text-gray-400 lg:hidden">
             <span class="sr-only">Open menu</span>
             <!-- Heroicon name: outline/menu -->
-            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
@@ -503,383 +109,16 @@
           <!-- Flyout menus -->
           <div class="hidden lg:ml-8 lg:block lg:self-stretch">
             <div class="h-full flex space-x-8">
-              <div class="flex">
-                <div class="relative flex">
-                  <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" -->
-                  <button (click)="toggleWomen()" type="button"  class="hover:text-red-500 border-transparent text-gray-700 hover:text-gray-800 relative z-10 flex items-center transition-colors ease-out duration-200 text-lg font-medium border-b-2 -mb-px pt-px" aria-expanded="false">
-                    Women
-                  </button>
-                </div>
 
-                <!--
-                  'Women' flyout menu, show/hide based on flyout menu state.
 
-                  Entering: "transition ease-out duration-200"
-                    From: "opacity-0"
-                    To: "opacity-100"
-                  Leaving: "transition ease-in duration-150"
-                    From: "opacity-100"
-                    To: "opacity-0"
-                -->
-                <div [ngClass]="{'hidden': !showWomen}" class="absolute top-full inset-x-0 text-lg text-gray-500">
-                  <!-- Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow -->
-                  <div class="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true"></div>
 
-                  <div class="relative bg-white">
-                    <div class="max-w-7xl mx-auto px-8">
-                      <div class="grid grid-cols-2 gap-y-10 gap-x-8 py-16">
-                        <div class="col-start-2 grid grid-cols-2 gap-x-8">
-                          <div class="group relative text-base sm:text-lg">
-                            <div class="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
-                              <img src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg" alt="Models sitting back to back, wearing Basic Tee in black and bone." class="object-center object-cover">
-                            </div>
-                            <a href="#" class="mt-6 block font-medium text-gray-900">
-                              <span class="absolute z-10 inset-0" aria-hidden="true"></span>
-                              New Arrivals
-                            </a>
-                            <p aria-hidden="true" class="mt-1">Shop now</p>
-                          </div>
+              <a *ngFor="let item of listCategories" [routerLink]="['/products', item.name]"
+                class="hover:text-red-500 flex items-center text-lg font-medium text-gray-700">{{item.esname}}</a>
+              <a routerLink="/contact"
+                class="hover:text-red-500 flex items-center text-lg font-medium text-gray-700">Contact</a>
 
-                          <div class="group relative text-base sm:text-lg">
-                            <div class="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
-                              <img src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg" alt="Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees." class="object-center object-cover">
-                            </div>
-                            <a href="#" class="mt-6 block font-medium text-gray-900">
-                              <span class="absolute z-10 inset-0" aria-hidden="true"></span>
-                              Basic Tees
-                            </a>
-                            <p aria-hidden="true" class="mt-1">Shop now</p>
-                          </div>
-                        </div>
-                        <div class="row-start-1 grid grid-cols-3 gap-y-10 gap-x-8 text-lg">
-                          <div>
-                            <p id="Clothing-heading" class="font-medium text-gray-900">
-                              Clothing
-                            </p>
-                            <ul role="list" aria-labelledby="Clothing-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Tops
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Dresses
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Pants
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Denim
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Sweaters
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  T-Shirts
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Jackets
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Activewear
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Browse All
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-
-                          <div>
-                            <p id="Accessories-heading" class="font-medium text-gray-900">
-                              Accessories
-                            </p>
-                            <ul role="list" aria-labelledby="Accessories-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Watches
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Wallets
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Bags
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Sunglasses
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Hats
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Belts
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-
-                          <div>
-                            <p id="Brands-heading" class="font-medium text-gray-900">
-                              Brands
-                            </p>
-                            <ul role="list" aria-labelledby="Brands-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Full Nelson
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  My Way
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Re-Arranged
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Counterfeit
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Significant Other
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="flex">
-                <div class="relative flex">
-                  <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" -->
-                  <button (click)="toggleMen()" type="button" class="hover:text-red-500 border-transparent text-gray-700 hover:text-gray-800 relative z-10 flex items-center transition-colors ease-out duration-200 text-lg font-medium border-b-2 -mb-px pt-px" aria-expanded="false">
-                    Men
-                  </button>
-                </div>
-
-                <!--
-                  'Men' flyout menu, show/hide based on flyout menu state.
-
-                  Entering: "transition ease-out duration-200"
-                    From: "opacity-0"
-                    To: "opacity-100"
-                  Leaving: "transition ease-in duration-150"
-                    From: "opacity-100"
-                    To: "opacity-0"
-                -->
-                <div [ngClass]="{'hidden': !showMen}" class="absolute top-full inset-x-0 text-lg text-gray-500">
-                  <!-- Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow -->
-                  <div class="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true"></div>
-
-                  <div class="relative bg-white">
-                    <div class="max-w-7xl mx-auto px-8">
-                      <div class="grid grid-cols-2 gap-y-10 gap-x-8 py-16">
-                        <div class="col-start-2 grid grid-cols-2 gap-x-8">
-                          <div class="group relative text-base sm:text-lg">
-                            <div class="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
-                              <img src="https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg" alt="Drawstring top with elastic loop closure and textured interior padding." class="object-center object-cover">
-                            </div>
-                            <a href="#" class="mt-6 block font-medium text-gray-900">
-                              <span class="absolute z-10 inset-0" aria-hidden="true"></span>
-                              New Arrivals men
-                            </a>
-                            <p aria-hidden="true" class="mt-1">Shop now</p>
-                          </div>
-
-                          <div class="group relative text-base sm:text-lg">
-                            <div class="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
-                              <img src="https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg" alt="Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt." class="object-center object-cover">
-                            </div>
-                            <a href="#" class="mt-6 block font-medium text-gray-900">
-                              <span class="absolute z-10 inset-0" aria-hidden="true"></span>
-                              Artwork Tees
-                            </a>
-                            <p aria-hidden="true" class="mt-1">Shop now</p>
-                          </div>
-                        </div>
-                        <div class="row-start-1 grid grid-cols-3 gap-y-10 gap-x-8 text-lg">
-                          <div>
-                            <p id="Clothing-heading" class="font-medium text-gray-900">
-                              Clothing
-                            </p>
-                            <ul role="list" aria-labelledby="Clothing-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Tops
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Pants
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Sweaters
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  T-Shirts
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Jackets
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Activewear
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Browse All
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-
-                          <div>
-                            <p id="Accessories-heading" class="font-medium text-gray-900">
-                              Accessories
-                            </p>
-                            <ul role="list" aria-labelledby="Accessories-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Watches
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Wallets
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Bags
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Sunglasses
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Hats
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Belts
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-
-                          <div>
-                            <p id="Brands-heading" class="font-medium text-gray-900">
-                              Brands
-                            </p>
-                            <ul role="list" aria-labelledby="Brands-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Re-Arranged
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Counterfeit
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  Full Nelson
-                                </a>
-                              </li>
-
-                              <li class="flex">
-                                <a href="#" class="hover:text-gray-800">
-                                  My Way
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <a routerLink="/contact" class="hover:text-red-500 flex items-center text-lg font-medium text-gray-700">Contact</a>
-
-              <a routerLink="/about" class="hover:text-red-500 flex items-center text-lg font-medium text-gray-700">About Us</a>
+              <a routerLink="/about"
+                class="hover:text-red-500 flex items-center text-lg font-medium text-gray-700">About Us</a>
             </div>
           </div>
 
@@ -891,8 +130,9 @@
             </div>
 
             <div class="hidden lg:ml-8 lg:flex">
-              <a  class="text-gray-700 hover:text-red-500 flex items-center">
-                <img src="https://cdn-icons-png.flaticon.com/512/330/330202.png" alt="" class="w-5 h-auto block flex-shrink-0">
+              <a class="text-gray-700 hover:text-red-500 flex items-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/330/330202.png" alt=""
+                  class="w-5 h-auto block flex-shrink-0">
                 <span class="ml-3 block text-lg font-medium">
                   VN
                 </span>
@@ -902,11 +142,13 @@
 
             <!-- Search -->
             <div class="flex lg:ml-6">
-              <a href="#" class="p-2 text-gray-400 hover:text-red-500 ">
+              <a class="p-2 text-gray-400 hover:text-red-500 ">
                 <span class="sr-only">Search</span>
                 <!-- Heroicon name: outline/search -->
-                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                <svg class="w-6 h-6" (click)="toggleModal()" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </a>
             </div>
@@ -915,10 +157,12 @@
             <div class="ml-4 flow-root lg:ml-6">
               <a routerLink="/cart" class="group -m-2 p-2 flex items-center hover:text-red-500">
                 <!-- Heroicon name: outline/shopping-bag -->
-                <svg class="flex-shrink-0 h-6 w-6 text-gray-400 hover:text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                <svg class="flex-shrink-0 h-6 w-6 text-gray-400 hover:text-red-500" xmlns="http://www.w3.org/2000/svg"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
-                <span class="ml-2 text-lg font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                <!-- <span class="ml-2 text-lg font-medium text-gray-700 group-hover:text-gray-800">{{totalItem}}</span> -->
                 <span class="sr-only">items in cart, view bag</span>
               </a>
             </div>
@@ -928,3 +172,64 @@
     </nav>
   </header>
 </div>
+
+<!--  -->
+<div *ngIf="showModal"
+  class="z-index-full overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+  <div class="relative w-auto my-6 mx-auto max-w-3xl">
+    <!--content-->
+    <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+      <!--header-->
+      <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+        <h3 class="text-3xl font-semibold">
+          Search
+        </h3>
+        <button
+          class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+          (click)="toggleModal()">
+          <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+            <i class="fas fa-close">x</i>
+          </span>
+        </button>
+      </div>
+      <!--body-->
+      <div class="relative p-6 flex-auto">
+        <div class="flex items-center justify-center px-5 py-5">
+          <div
+            class="w-full mx-auto rounded-xl bg-gray-100 shadow-sm p-10 text-gray-800 relative overflow-hidden resize-x min-w-min max-w-3xl">
+            <div class="relative mt-1">
+              <input type="text" [autofocus]="true"
+                class="w-full pl-3 pr-10 py-2 border-2 border-gray-200 rounded-xl hover:border-gray-300 focus:outline-none focus:border-blue-500 transition-colors"
+                placeholder="Search..." [(ngModel)]="textsearch">
+              <button
+                class="block w-7 h-7 text-center text-xl leading-0 absolute top-2 right-2 text-gray-400 focus:outline-none hover:text-gray-900 transition-colors"><i
+                  class="mdi mdi-magnify"></i></button>
+            </div>
+            <div class="absolute top-0 left-0 w-full h-2 flex">
+              <div class="h-2 bg-blue-500 flex-1"></div>
+              <div class="h-2 bg-red-500 flex-1"></div>
+              <div class="h-2 bg-yellow-500 flex-1"></div>
+              <div class="h-2 bg-blue-500 flex-1"></div>
+              <div class="h-2 bg-green-500 flex-1"></div>
+              <div class="h-2 bg-red-500 flex-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--footer-->
+      <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+        <button
+          class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          type="button" (click)="toggleModal()">
+          Close
+        </button>
+        <button
+          class="bg-emerald-500 text-green-500 active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          type="button" [routerLink]="['/search',textsearch]" (click)="toggleModal()">
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>

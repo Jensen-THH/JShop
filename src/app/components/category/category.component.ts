@@ -67,6 +67,7 @@ export class CategoryComponent implements OnInit {
     // product.size = this.selectedOption
     this.cartService.addToCart(product);
     window.alert('Your product has been added to the cart!');
+    console.log(this.cartService.getItems())
   }
   constructor(private cartService: CartService) { }
   ngOnInit(): void {

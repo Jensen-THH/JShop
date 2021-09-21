@@ -17,6 +17,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ProductsComponent } from './components/products/products.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     CartComponent,
     AboutComponent,
     ProductsComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
