@@ -18,7 +18,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { SearchComponent } from './components/search/search.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +41,8 @@ import { SearchComponent } from './components/search/search.component';
     FormsModule,
     AppRoutingModule,
     Ng2SearchPipeModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -23,16 +23,16 @@
     <!-- <input class="outline-none text-gray-600 focus:text-blue-600" placeholder="Search..." [(ngModel)]="filterTerm" /> -->
 
     <div class="mx-auto  lg:max-w-none">
-        <h1 class="text-center font-extrabold text-5xl pb-10 text-red-600">{{products[0].category}}</h1>
+        <h1 class="text-center font-extrabold text-5xl pb-10 text-red-600">{{producCategory}}</h1>
 
         <h3 class="text-2xl font-extrabold text-gray-900">Fashions</h3>
         <div class="grid gap-6 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
             <div *ngFor="let item of products | filter :filterTerm"
                 class="bg-gray-100 w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
                 <div class="flex div-two-img  lg:h-72 h-44 bg-center  w-full bg-contain bg-no-repeat">
-                    <img src="{{ item.images[0]}}" [routerLink]="['/product', item._id.$oid]"
+                    <img src="{{ item.images[0]}}" [routerLink]="['/product', item._id]"
                         class="object-contain max-h-full w-full" alt="0" />
-                    <img src="{{ item.images[3]}}" [routerLink]="['/product', item._id.$oid]"
+                    <img src="{{ item.images[3]}}" [routerLink]="['/product', item._id]"
                         class="img-2  object-contain max-h-full w-full" alt="0" />
                     <button (click)="addToCart(item)"
                         class="z-50 p-2 shadow-xl absolute bottom-0 right-0 xl:bottom-0 xl:right-0 rounded-full bg-red-600 text-white mx-5 -mb-4 hover:bg-red-500 focus:outline-none focus:bg-blue-500">

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ALLPRODUCT } from '../../mock-all-product';
 import { CartService } from '../../service/cart.service';
+import { ApiService } from '../../service/api.service';
+
 @Component({
   selector: 'app-detailproduct',
   templateUrl: './detailproduct.component.html',
@@ -14,15 +16,20 @@ export class DetailproductComponent implements OnInit {
   // selectedOption = this.sizes[1]
   constructor(
     private route: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
+    private apiService: ApiService,
   ) {
   }
-  
+
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = String(routeParams.get('productId'));
-    this.product = ALLPRODUCT.find(product => product._id.$oid === productIdFromRoute);
- 
+    // this.product = ALLPRODUCT.find(product => product._id.$oid === productIdFromRoute);
+    this.product = this.apiService.GetOneProduct(productIdFromRoute).subscribe(
+      res => {
+        this.product = res
+      }
+    )
   }
 
   addToCart(product: any) {
@@ -30,7 +37,7 @@ export class DetailproductComponent implements OnInit {
     this.cartService.addToCart(product);
     window.alert('Your product has been added to the cart!');
   }
-  
+
   // icr() {
   //   if (this.product.count <= 19) {
   //      this.product.count += 1
@@ -44,5 +51,5 @@ export class DetailproductComponent implements OnInit {
   //   }
   //   return this.product.count
   // }
-  
+
 }
