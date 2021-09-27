@@ -8,7 +8,8 @@
                     placeholder="Search..." [(ngModel)]="filterTerm">
                 <button
                     class="block w-7 h-7 text-center text-xl leading-0 absolute top-2 right-2 text-gray-400 focus:outline-none hover:text-gray-900 transition-colors"><i
-                        class="mdi mdi-magnify"></i></button>
+                        class="mdi mdi-magnify"></i>
+                </button>
             </div>
             <div class="absolute top-0 left-0 w-full h-2 flex">
                 <div class="h-2 bg-blue-500 flex-1"></div>
@@ -33,9 +34,9 @@
             <div *ngFor="let item of products | filter :filterTerm"
                 class="bg-gray-100 w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
                 <div class="flex div-two-img  lg:h-72 h-44 bg-center  w-full bg-contain bg-no-repeat">
-                    <img src="{{ item.images[0]}}" [routerLink]="['/product', item._id.$oid]"
+                    <img src="{{ item.images[0]}}" [routerLink]="['/product', item._id]"
                         class="object-contain max-h-full w-full" alt="0" />
-                    <img src="{{ item.images[3]}}" [routerLink]="['/product', item._id.$oid]"
+                    <img src="{{ item.images[3]}}" [routerLink]="['/product', item._id]"
                         class="img-2  object-contain max-h-full w-full" alt="0" />
                     <button (click)="addToCart(item)"
                         class="z-50 p-2 shadow-xl absolute bottom-0 right-0 xl:bottom-0 xl:right-0 rounded-full bg-red-600 text-white mx-5 -mb-4 hover:bg-red-500 focus:outline-none focus:bg-blue-500">
@@ -47,7 +48,7 @@
                         </svg>
                     </button>
                 </div>
-                <div [routerLink]="['/product', item._id.$oid]" class="hover:bg-red-100 px-5 py-3">
+                <div [routerLink]="['/product', item._id]" class="hover:bg-red-100 px-5 py-3">
                     <h3 style="max-width: 100ch;"
                         class="text-gray-700 md:text-sm lg:text-base whitespace-nowrap overflow-hidden overflow-ellipsis  text-2xs mt-2 uppercase">
                         {{item.name}}</h3>
@@ -58,7 +59,6 @@
             </div>
         </div>
     </div>
-
      <ng-template #noproduct class="">
          <h1 class="text-center"> 0 Product!</h1>
      </ng-template>

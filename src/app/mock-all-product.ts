@@ -6,7 +6,6 @@ import { Hero } from './service/hero'
 // let REST_API = 'http://localhost:8000/api/all'
 // const allproducts  = this.httpClient.get(`${REST_API}`);
 export const ALLPRODUCT: Hero[] =
-
   [{
     "_id": {
       "$oid": "6149611991df1c325c9f9aba"

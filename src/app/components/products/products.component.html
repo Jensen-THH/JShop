@@ -28,7 +28,7 @@
         <h3 class="text-2xl font-extrabold text-gray-900">Fashions</h3>
         <div class="grid gap-6 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
             <div *ngFor="let item of products | filter :filterTerm"
-                class="bg-gray-100 w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
+                class="cursor-pointer bg-gray-100 w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
                 <div class="flex div-two-img  lg:h-72 h-44 bg-center  w-full bg-contain bg-no-repeat">
                     <img src="{{ item.images[0]}}" [routerLink]="['/product', item._id]"
                         class="object-contain max-h-full w-full" alt="0" />
@@ -44,7 +44,7 @@
                         </svg>
                     </button>
                 </div>
-                <div [routerLink]="['/product', item._id.$oid]" class="hover:bg-red-100 px-5 py-3">
+                <div [routerLink]="['/product', item._id]" class="hover:bg-red-100 px-5 py-3 cursor-pointer">
                     <h3 style="max-width: 100ch;"
                         class="text-gray-700 md:text-sm lg:text-base whitespace-nowrap overflow-hidden overflow-ellipsis  text-2xs mt-2 uppercase">
                         {{item.name}}</h3>
