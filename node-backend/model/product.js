@@ -10,7 +10,7 @@ var productScheme = mongodb.Schema
         price: Object,
         description: String,
         category: String,
-        __v: Number
+        // __v: Number
     })
 
 var products = module.exports = mongodb.model('products', productScheme)

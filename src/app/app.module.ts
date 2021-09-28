@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -31,6 +31,7 @@ import { NotificationDropdownComponent } from './backend/components/dropdowns/no
 import { DashboardComponent } from './backend/views/dashboard/dashboard.component';
 import { TablesComponent } from './backend/views/tables/tables.component';
 import { CardTableComponent } from './backend/components/cards/card-table/card-table.component';
+import { AddProductComponent } from './backend/components/add-product/add-product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +60,7 @@ import { CardTableComponent } from './backend/components/cards/card-table/card-t
     DashboardComponent,
     TablesComponent,
     CardTableComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,8 @@ import { CardTableComponent } from './backend/components/cards/card-table/card-t
     AppRoutingModule,
     Ng2SearchPipeModule,
     SlickCarouselModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

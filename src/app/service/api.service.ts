@@ -2,15 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http'
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { Product } from './product.service';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class ApiService {
 
   REST_API = "http://localhost:8000/api"
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private httpClient: HttpClient) { }
 
+  // add product 
+  AddProduct(data: Product): Observable<any> {
+    let API_URL = `${this.REST_API}/add-product`;
+    return this.httpClient.post(API_URL, data).pipe(catchError(this.handleError))
+  }
   // get all product
   public GetAllProduct() {
     console.log('get api')
@@ -41,8 +49,8 @@ export class ApiService {
     return this.httpClient.put(API_URL, data, { headers: this.httpHeaders }).pipe(catchError(this.handleError))
   }
   // delete product
-  deleteProduct(id:any): Observable<any>{
-    let API_URL =`${this.REST_API}/update-product/${id}`;
-    return this.httpClient.delete(API_URL,{headers:this.httpHeaders}).pipe(catchError(this.handleError))
+  deleteProduct(id: any): Observable<any> {
+    let API_URL = `${this.REST_API}/update-product/${id}`;
+    return this.httpClient.delete(API_URL, { headers: this.httpHeaders }).pipe(catchError(this.handleError))
   }
 }

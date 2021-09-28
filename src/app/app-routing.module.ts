@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './backend/admin/admin.component';
+import { AddProductComponent } from './backend/components/add-product/add-product.component';
 import { TablesComponent } from './backend/views/tables/tables.component';
 import { AboutComponent } from './components/about/about.component';
 import { CartComponent } from './components/cart/cart.component';
@@ -31,7 +32,8 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'admin', component: AdminComponent, children:[
     { path: 'table', component: TablesComponent },
-    { path: '', redirectTo: 'cart', pathMatch: 'full' }
+    { path: 'add-product', component: AddProductComponent },
+    { path: '', redirectTo: 'table', pathMatch: 'full' }
   ] },
 ];
 

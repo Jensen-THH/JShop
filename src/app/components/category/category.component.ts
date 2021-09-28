@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CartService } from '../../service/cart.service';
-import {ALLPRODUCT} from '../../mock-all-product'
-import { ApiService } from 'src/app/service/api.service';
+// import {ALLPRODUCT} from '../../mock-all-product'
+import { ApiService } from './../../service/api.service';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
