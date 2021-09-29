@@ -36,23 +36,13 @@ export class AddProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      price: this.formBuilder.group({
-        sale: [''],
-        old: ['']
-      }),
-      images: [],
-      description: [''],
-      category: [''],
-      sku: ['']
-    })
+    
   }
   OnSubmit(): any {
     this.apiService.AddProduct(this.productForm.value).subscribe(() => {
       console.log('added successfully')
       this.ngZone.run(() => {
-        this.router.navigateByUrl('/table')
+        this.router.navigateByUrl('/admin/table')
       }, (err: any) => {
         console.log(err);
       })

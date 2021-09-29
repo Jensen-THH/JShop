@@ -62,6 +62,7 @@ export class CartService{
             product.count = 1
             this.items.push(product)
             console.log('Product added to cart successfully!')
+            // localStorage.setItem("items",JSON.stringify(this.items))
           }
         }
         else {

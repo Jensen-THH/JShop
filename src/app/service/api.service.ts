@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http'
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { Product } from './product.service';
+import { Product } from './product';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +16,9 @@ export class ApiService {
 
   // add product 
   AddProduct(data: Product): Observable<any> {
+    
+    data.price.old =  (data.price.old + "đ").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+    data.price.sale =  (data.price.sale + "đ").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
     let API_URL = `${this.REST_API}/add-product`;
     return this.httpClient.post(API_URL, data).pipe(catchError(this.handleError))
   }
@@ -45,12 +48,14 @@ export class ApiService {
   }
   // update product
   updateProduct(id: any, data: any): Observable<any> {
+    data.price.old =  (data.price.old + "đ").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+    data.price.sale =  (data.price.sale + "đ").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
     let API_URL = `${this.REST_API}/update-product/${id}`;
     return this.httpClient.put(API_URL, data, { headers: this.httpHeaders }).pipe(catchError(this.handleError))
   }
   // delete product
   deleteProduct(id: any): Observable<any> {
-    let API_URL = `${this.REST_API}/update-product/${id}`;
+    let API_URL = `${this.REST_API}/delete-product/${id}`;
     return this.httpClient.delete(API_URL, { headers: this.httpHeaders }).pipe(catchError(this.handleError))
   }
 }

@@ -14,5 +14,11 @@ export class TablesComponent implements OnInit {
       this.allproduct = res
     })
   }
-
+  deleteProduct(id:any,i:any){
+    if (window.confirm('Do you want to go ahead?')){
+      this.apiService.deleteProduct(id).subscribe((res)=>{
+        this.allproduct.splice(i,1)
+      })
+    }
+  }
 }

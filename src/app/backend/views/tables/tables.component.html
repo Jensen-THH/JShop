@@ -1,53 +1,52 @@
-
 <div class="flex items-center w-full justify-center min-h-screen overflow-hidden overflow-y-scroll ">
-	<div class="col-span-12 w-full ">
-		<div class="overflow-auto lg:overflow-visible w-full">
-			<table class="w-full table text-gray-400 border-separate space-y-6 text-lg">
-				<thead class="bg-gray-800 text-gray-500">
-					<tr>
-						<th class="p-3">Brand</th>
-						<th class="p-3 text-left">Category</th>
-						<th class="p-3 text-left">Price</th>
-						<th class="p-3 text-left">Status</th>
-						<th class="p-3 text-left">Action</th>
-					</tr>
-				</thead>
-				<tbody>
-				
-                    	<tr class="bg-gray-800"  *ngFor="let item of allproduct; let i = index">
-						<td class="p-3">
-							<div class="flex align-items-center">
-								<img class="rounded-full h-12 w-12  object-cover" src="{{item.images[0]}}" alt="unsplash image">
-								<div class="ml-3" style="width: 20ch;">
-									<div style="max-width: 15ch;" class="whitespace-nowrap overflow-hidden  overflow-ellipsis">{{item.name}}</div>
-									<div class="text-gray-500 " >sku :{{item.sku}}</div>
-								</div>
-							</div>
-						</td>
-						<td class="p-3">
-							{{item.category}}
-						</td>
-						<td class="p-3 font-bold">
-							{{item.price.sale}} , {{item.price.old}}
-						</td>
-						<td class="p-3">
-							<span class="bg-green-400 text-gray-50 rounded-md px-2">available</span>
-						</td>
-						<td class="p-3 ">
-							<a href="#" class="text-gray-400 hover:text-gray-100 mr-2">
-								<i class="material-icons-outlined text-base">visibility</i>
-							</a>
-							<a href="#" class="text-gray-400 hover:text-gray-100  mx-2">
-								<i class="material-icons-outlined text-base">edit</i>
-							</a>
-							<a href="#" class="text-gray-400 hover:text-gray-100  ml-2">
-								<i class="material-icons-round text-base">delete_outline</i>
-							</a>
-						</td>
-					</tr>
-				
-				</tbody>
-			</table>
-		</div>
-	</div>
+    <div class="col-span-12 w-full ">
+        <div class="overflow-auto lg:overflow-visible w-full">
+            <table class="w-full table text-gray-400 border-separate space-y-6 text-lg">
+                <thead class="bg-gray-800 text-gray-500">
+                    <tr>
+                        <th class="p-3">Brand</th>
+                        <th class="p-3 text-left">Category</th>
+                        <th class="p-3 text-left">Price</th>
+                        <th class="p-3 text-left">Status</th>
+                        <th class="p-3 text-left">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="bg-gray-800" *ngFor="let item of allproduct; let i = index">
+                        <td class="p-3">
+                            <div class="flex align-items-center">
+                                <img class="rounded-full h-12 w-12  object-cover" src="{{item.images[0]}}" alt="unsplash image">
+                                <div class="ml-3" style="width: 20ch;">
+                                    <div style="max-width: 15ch;" class="whitespace-nowrap overflow-hidden  overflow-ellipsis">{{item.name}}</div>
+                                    <div class="text-gray-500 ">sku :{{item.sku}}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-3">
+                            {{item.category}}
+                        </td>
+                        <td class="p-3 font-bold">
+                            {{item.price.sale}} , {{item.price.old}}
+                        </td>
+                        <td class="p-3">
+                            <span class="bg-green-400 text-gray-50 rounded-md px-2">available</span>
+                        </td>
+                        <td class="p-3 ">
+                            <a href="#" class="text-gray-400 hover:text-gray-100 mr-2">
+                                <i class="material-icons-outlined text-base">visibility</i>
+                            </a>
+                            <a [routerLink]="['/admin/edit-product', item._id]" routerLinkActive="router-link-active" class="text-gray-400 hover:text-gray-100  mx-2">
+                                <i class="material-icons-outlined text-base">edit</i>
+                            </a>
+                            <a (click)="deleteProduct(item._id, i)" class="text-gray-400 hover:text-gray-100  ml-2">
+                                <i class="material-icons-round text-base">delete_outline</i>
+                            </a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

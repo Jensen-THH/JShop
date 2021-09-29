@@ -32,6 +32,7 @@ import { DashboardComponent } from './backend/views/dashboard/dashboard.componen
 import { TablesComponent } from './backend/views/tables/tables.component';
 import { CardTableComponent } from './backend/components/cards/card-table/card-table.component';
 import { AddProductComponent } from './backend/components/add-product/add-product.component';
+import { EditProductComponent } from './backend/components/edit-product/edit-product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +62,7 @@ import { AddProductComponent } from './backend/components/add-product/add-produc
     TablesComponent,
     CardTableComponent,
     AddProductComponent,
+    EditProductComponent,
   ],
   imports: [
     BrowserModule,

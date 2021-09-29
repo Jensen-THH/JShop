@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './backend/admin/admin.component';
 import { AddProductComponent } from './backend/components/add-product/add-product.component';
+import { EditProductComponent } from './backend/components/edit-product/edit-product.component';
+import { DashboardComponent } from './backend/views/dashboard/dashboard.component';
 import { TablesComponent } from './backend/views/tables/tables.component';
 import { AboutComponent } from './components/about/about.component';
 import { CartComponent } from './components/cart/cart.component';
@@ -22,7 +24,6 @@ const routes: Routes = [
     { path: 'about', component: AboutComponent },
     { path: 'products/:category', component: ProductsComponent },
     { path: 'search/:category', component: SearchComponent },
-    { path: 'search/:category', component: SearchComponent },
 
     {path:'' , component: IndexComponent},
     {path:'index' , component: IndexComponent},
@@ -33,7 +34,9 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent, children:[
     { path: 'table', component: TablesComponent },
     { path: 'add-product', component: AddProductComponent },
-    { path: '', redirectTo: 'table', pathMatch: 'full' }
+    { path: 'dashboard', component: DashboardComponent },
+    { path: 'edit-product/:id', component: EditProductComponent },
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
   ] },
 ];
 
