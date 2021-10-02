@@ -41,7 +41,8 @@ export class ApiService {
   // get one product
   public GetOneProduct(id: any): Observable<any> {
     let API_URL = `${this.REST_API}/read-product/${id}`;
-    return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(map((res: any) => {
+    return this.httpClient.get(API_URL, { headers: this.httpHeaders })
+    .pipe(map((res: any) => {
       return res || {}
 
     }), catchError(this.handleError))

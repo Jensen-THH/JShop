@@ -33,6 +33,7 @@ import { TablesComponent } from './backend/views/tables/tables.component';
 import { CardTableComponent } from './backend/components/cards/card-table/card-table.component';
 import { AddProductComponent } from './backend/components/add-product/add-product.component';
 import { EditProductComponent } from './backend/components/edit-product/edit-product.component';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +72,8 @@ import { EditProductComponent } from './backend/components/edit-product/edit-pro
     Ng2SearchPipeModule,
     SlickCarouselModule,
     HttpClientModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    FlashMessagesModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

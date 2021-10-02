@@ -1,73 +1,75 @@
-
-
-<section class="min-h-screen flex items-stretch text-white ">
-    <div class="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center" style="background-image: url(https://images.unsplash.com/photo-1577495508048-b635879837f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80);">
-        <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
-        <div class="w-full px-24 z-10">
-            <h1 class="text-5xl font-bold text-left tracking-wide">Keep it special</h1>
-            <p class="text-3xl my-4">Capture your personal memory in unique way, anywhere.</p>
-        </div>
-        <div class="bottom-0 absolute p-4 text-center right-0 left-0 flex justify-center space-x-4">
-            <span>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <!-- <form> -->
+    <section class="min-h-screen flex items-stretch text-white ">
+        <div class="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center" style="background-image: url(https://images.unsplash.com/photo-1577495508048-b635879837f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80);">
+            <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
+            <div class="w-full px-24 z-10">
+                <h1 class="text-5xl font-bold text-left tracking-wide">Keep it special</h1>
+                <p class="text-3xl my-4">Capture your personal memory in unique way, anywhere.</p>
+            </div>
+            <div class="bottom-0 absolute p-4 text-center right-0 left-0 flex justify-center space-x-4">
+                <span>
                 <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
             </span>
-            <span>
+                <span>
                 <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
             </span>
-            <span>
+                <span>
                 <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </span>
+            </div>
         </div>
-    </div>
-    <div class="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 z-0" style="background-color: #636363;">
-        <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-            <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-                <h1 class="mb-8 text-3xl text-center">Sign up</h1>
-                <input 
-                    type="text"
-                    class="block border border-grey-light w-full p-3 rounded mb-4"
-                    name="fullname"
-                    placeholder="Full Name" />
-    
-                <input 
-                    type="text"
-                    class="block border border-grey-light w-full p-3 rounded mb-4"
-                    name="email"
-                    placeholder="Email" />
-    
-                <input 
-                    type="password"
-                    class="block border border-grey-light w-full p-3 rounded mb-4"
-                    name="password"
-                    placeholder="Password" />
-                <input 
-                    type="password"
-                    class="block border border-grey-light w-full p-3 rounded mb-4"
-                    name="confirm_password"
-                    placeholder="Confirm Password" />
-    
-                <button
-                    type="submit"
-                    class="w-full text-center py-3 rounded bg-green-600 text-white hover:bg-green-dark focus:outline-none my-1"
-                >Create Account</button>
-    
-                <div class="text-center text-sm text-grey-dark mt-4">
-                    By signing up, you agree to the 
-                    <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
+        <div class="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 z-0" style="background-color: #636363;">
+            <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+
+                <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+                    <h1 class="mb-8 text-3xl text-center">Sign up</h1>
+                    <input type="text" formControlName="username" name="username" class="block border border-grey-light w-full p-3 rounded mb-4" name="fullname" placeholder="Full Name" />
+                    <!-- <input type="text"  name="username" class="block border border-grey-light w-full p-3 rounded mb-4" name="fullname" placeholder="Full Name" /> -->
+
+                    <input type="text" [pattern]="emailRegex" formControlName="email" name="email" class="block border border-grey-light w-full p-3 rounded mb-4" name="email" placeholder="Email" />
+                    <!-- <input type="text"  name="email" class="block border border-grey-light w-full p-3 rounded mb-4" name="email" placeholder="Email" /> -->
+
+                    <input type="password" formControlName="password" name="password" class="block border border-grey-light w-full p-3 rounded mb-4" name="password" placeholder="Password" />
+                    <!-- <input type="password"  name="password" class="block border border-grey-light w-full p-3 rounded mb-4" name="password" placeholder="Password" /> -->
+                    <!-- <input type="password" formControlName="password" class="block border border-grey-light w-full p-3 rounded mb-4" name="confirm_password" placeholder="Confirm Password" /> -->
+                    <!-- <input type="password" class="block border border-grey-light w-full p-3 rounded mb-4" name="confirm_password" placeholder="Confirm Password" /> -->
+
+                    <button type="submit" class="w-full text-center py-3 rounded bg-green-600 text-white hover:bg-green-dark focus:outline-none my-1">Create Account</button>
+
+                    <div class="text-center text-sm text-grey-dark mt-4">
+                        By signing up, you agree to the
+                        <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
                         Terms of Service
-                    </a> and 
-                    <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
+                    </a> and
+                        <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
                         Privacy Policy
                     </a>
+                    </div>
+                </div>
+
+                <div class="text-grey-dark mt-6">
+                    Already have an account?
+                    <a class="no-underline border-b border-blue text-blue">
+                        Log in
+                    </a>.
                 </div>
             </div>
-    
-            <div class="text-grey-dark mt-6">
-                Already have an account? 
-                <a class="no-underline border-b border-blue text-blue" href="../login/">
-                    Log in
-                </a>.
-            </div>
         </div>
-    </div>
-  </section>
+    </section>
+</form>
+<!-- Success message -->
+<div *ngIf="showSucessMessage" class="absolute right-0 left-0 bottom-0 flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3" role="alert">
+    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z"/></svg>
+    <p>Create account successfully.</p>
+</div>
+
+<!-- Error message -->
+
+<div *ngIf="serverErrorMessages" class="absolute right-0 left-0 bottom-0 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded" role="alert">
+    <strong class="font-bold">{{serverErrorMessages}}</strong>
+    <!-- <span class="block sm:inline">{{serverErrorMessages}}</span> -->
+    <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+      <svg class="fill-current h-6 w-6 text-red-500" role="button" (click)="serverErrorMessages = ''" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+    </span>
+</div>
