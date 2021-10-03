@@ -15,6 +15,7 @@ import { SearchComponent } from './components/search/search.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { SignupComponent } from './signup/signup.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: MainComponent , children :[
@@ -31,17 +32,18 @@ const routes: Routes = [
   ] },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'admin', component: AdminComponent, children:[
-    { path: 'table', component: TablesComponent },
-    { path: 'add-product', component: AddProductComponent },
-    { path: 'dashboard', component: DashboardComponent },
-    { path: 'edit-product/:id', component: EditProductComponent },
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
+  { path: 'admin', component: AdminComponent, canActivate:[AuthGuard], children:[
+    { path: 'table', component: TablesComponent ,canActivate:[AuthGuard]} ,
+    { path: 'add-product', component: AddProductComponent ,canActivate:[AuthGuard]},
+    { path: 'dashboard', component: DashboardComponent ,canActivate:[AuthGuard]},
+    { path: 'edit-product/:id', component: EditProductComponent ,canActivate:[AuthGuard]},
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full'}
   ] },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard],
 })
 export class AppRoutingModule { }

@@ -33,16 +33,15 @@ export class AuthService {
     }), catchError(this.handleError))
   }
 
-  getProfile() {
-    this.loadToken();
-    let API_URL = `${this.REST_API}/admin`;
-    this.httpHeaders.append('Authorization', this.authToken);
-    return this.httpClient.post(API_URL, this.user, 
-      { headers: this.httpHeaders }).pipe(map((res: any) => {
-        return res || {}
+  // getProfile() {
+  //   this.loadToken();
+  //   let API_URL = `${this.REST_API}/admin`;
+  //   this.httpHeaders.append('Authorization', this.authToken);
+  //   return this.httpClient.get(API_URL,{ headers: this.httpHeaders }).pipe(map((res: any) => {
+  //       return res || {}
   
-      }), catchError(this.handleError))
-    }
+  //     }), catchError(this.handleError))
+  //   }
 
   storeUserData(token: any, user: any) {
     localStorage.setItem('id_token', token);

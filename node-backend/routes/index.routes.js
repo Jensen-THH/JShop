@@ -63,7 +63,7 @@ router.get('/admin', function(req, res, next) {
         });
 
     } else {
-        console.log('doesnt login')
+        // console.log('doesnt login')
     }
 });
 router.get('/profile', passport.authenticate('jwt', { session: false }), (req, res, next) => {

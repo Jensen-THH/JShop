@@ -34,6 +34,8 @@ import { CardTableComponent } from './backend/components/cards/card-table/card-t
 import { AddProductComponent } from './backend/components/add-product/add-product.component';
 import { EditProductComponent } from './backend/components/edit-product/edit-product.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import { AuthGuard } from './guards/auth.guard';
+import { AuthService } from './service/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +77,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
     ReactiveFormsModule,
     FlashMessagesModule.forRoot(),
   ],
-  providers: [],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
