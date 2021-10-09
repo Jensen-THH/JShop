@@ -32,6 +32,15 @@ export class AuthService {
       return  res || {}
     }), catchError(this.handleError))
   }
+  getAlluser(){
+    let API_URL = `${this.REST_API}/all`;
+    return this.httpClient.get(API_URL)
+  } 
+    // delete product
+    deleteUser(id: any): Observable<any> {
+      let API_URL = `${this.REST_API}/delete-user/${id}`;
+      return this.httpClient.delete(API_URL, { headers: this.httpHeaders }).pipe(catchError(this.handleError))
+    }
 
   // getProfile() {
   //   this.loadToken();
@@ -55,7 +64,22 @@ export class AuthService {
     this.authToken = token;
   }
 
+  loggedAsAdmin(){
+    let isAdmin = false
+    let user:any = localStorage.getItem('user');
+    user = JSON.parse(user)
+    
+    if (user && user.email === "admin@gmail.com"){
+      isAdmin = true
+    }
+    else{
+      isAdmin = false
+    }
+    return isAdmin
+
+  }
   loggedIn() {
+   
     return tokenNotExpired('id_token');
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../service/cart.service';
+import { AuthService } from '../service/auth.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -19,15 +20,20 @@ export class HeaderComponent implements OnInit , OnChanges {
     {name:"Đầm",esname :'Dress'},
     {name:"Quần",esname :'Pants'},
   ]
+  
   toggleModal(){
     this.showModal = !this.showModal;
   }
-  constructor(public router: Router, private cartService : CartService) { }
+  constructor(public router: Router, private cartService : CartService, public authService: AuthService) { }
+  isLogin :any = this.authService.loggedIn
+  logOut(){
+    this.authService.logout()
+    this.isLogin = this.authService.loggedIn
+  }
   ngOnChanges(changes: SimpleChanges): void {
     // this.totalItem =  this.cartService.getItems().length
     // console.log(this.totalItem, ' in cart')
   }
-  
   ngOnInit(): void {
     // this.totalItem =  this.cartService.getItems()
     // this.totalItem = this.totalItem.length

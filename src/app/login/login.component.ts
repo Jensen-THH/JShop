@@ -30,7 +30,12 @@ export class LoginComponent implements OnInit {
         if(data.success) {
           this.authService.storeUserData(data.token, data.user);
           this.flashMessage.show('You are now logged in', {cssClass: 'flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3 absolute top-0 right-0 left-0 text-center ', timeout: 5000});
-          this.router.navigate(['/admin/table']);
+          if(this.authService.loggedAsAdmin()){
+            this.router.navigate(['/admin/table']);
+          }
+          else{
+            this.router.navigate(['/']);
+          }
         } else {
           this.flashMessage.show(data.msg, {cssClass: 'bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded absolute top-0 right-0 left-0 text-center', timeout: 5000});
           console.log('false')

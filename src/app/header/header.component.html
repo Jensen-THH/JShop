@@ -1,12 +1,11 @@
 <div class="bg-white z-index-full font-medium fixed top-0 left-0 right-0">
-  <!--
+    <!--
     Mobile menu
 
     Off-canvas menu for mobile, show/hide based on off-canvas menu state.
   -->
-  <div [ngClass]="{'hidden': !showMenu}" class="font-medium fixed inset-0 flex z-40 lg:hidden" role="dialog"
-    aria-modal="true">
-    <!--
+    <div [ngClass]="{'hidden': !showMenu}" class="font-medium fixed inset-0 flex z-40 lg:hidden" role="dialog" aria-modal="true">
+        <!--
       Off-canvas menu overlay, show/hide based on off-canvas menu state.
 
       Entering: "transition-opacity ease-linear duration-300"
@@ -16,9 +15,9 @@
         From: "opacity-100"
         To: "opacity-0"
     -->
-    <div class="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
+        <div class="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
 
-    <!--
+        <!--
       Off-canvas menu, show/hide based on off-canvas menu state.
 
       Entering: "transition ease-in-out duration-300 transform"
@@ -28,10 +27,9 @@
         From: "translate-x-0"
         To: "-translate-x-full"
     -->
-    <div class="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
-      <div class="px-4 pt-5 pb-2 flex">
-        <button (click)="toggleMenu()" type="button"
-          class="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400">
+        <div class="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
+            <div class="px-4 pt-5 pb-2 flex">
+                <button (click)="toggleMenu()" type="button" class="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400">
           <span class="sr-only">Close menu</span>
           <!-- Heroicon name: outline/x -->
           <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -39,56 +37,59 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
-      </div>
+            </div>
 
-      <!-- Links -->
+            <!-- Links -->
 
-      <div class="border-t border-gray-200 py-6 px-4 space-y-6">
-        <div class="flow-root" *ngFor="let item of listCategories">
-          <a (click)="toggleMenu()" [routerLink]="['/products', item.name]" class="-m-2 p-2 block font-medium  text-gray-900 hover:text-red-500">{{item.esname}}</a>
-        </div>
-      </div>
-      <div class="border-t border-gray-200 py-6 px-4 space-y-6">
-        <div class="flow-root">
-          <a (click)="toggleMenu()" routerLink="/contact" class="-m-2 p-2 block font-medium  text-gray-900 hover:text-red-500">Contact</a>
-        </div>
+            <div class="border-t border-gray-200 py-6 px-4 space-y-6">
+                <div class="flow-root" *ngFor="let item of listCategories">
+                    <a (click)="toggleMenu()" [routerLink]="['/products', item.name]" class="-m-2 p-2 block font-medium  text-gray-900 hover:text-red-500">{{item.esname}}</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 py-6 px-4 space-y-6">
+                <div class="flow-root">
+                    <a (click)="toggleMenu()" routerLink="/contact" class="-m-2 p-2 block font-medium  text-gray-900 hover:text-red-500">Contact</a>
+                </div>
 
-        <div class="flow-root">
-          <a (click)="toggleMenu()" routerLink="/about" class="-m-2 p-2 block font-medium text-gray-900 hover:text-red-500">About us</a>
-        </div>
-      </div>
+                <div class="flow-root">
+                    <a (click)="toggleMenu()" routerLink="/about" class="-m-2 p-2 block font-medium text-gray-900 hover:text-red-500">About us</a>
+                </div>
+            </div>
 
-      <div class="border-t border-gray-200 py-6 px-4 space-y-6">
-        <div class="flow-root">
-          <a (click)="toggleMenu()" routerLink="/login" class="-m-2 p-2 block font-medium text-gray-900 hover:text-red-500">Sign in</a>
-        </div>
-        <div class="flow-root">
-          <a (click)="toggleMenu()" routerLink="/signup" class="-m-2 p-2 block font-medium text-gray-900 hover:text-red-500">Create account</a>
-        </div>
-      </div>
+            <div class="border-t border-gray-200 py-6 px-4 space-y-6">
+                <div class="flow-root">
+                    <a (click)="toggleMenu()" *ngIf="!authService.loggedIn()" routerLink="/login" class="-m-2 p-2 block font-medium text-gray-900 hover:text-red-500">Sign in</a>
+                </div>
+                <div class="flow-root">
+                    <a (click)="toggleMenu()" *ngIf="!authService.loggedIn()" routerLink="/signup" class="-m-2 p-2 block font-medium text-gray-900 hover:text-red-500">Create account</a>
+                </div>
+                <div class="flow-root">
+                    <a (click)="toggleMenu()" *ngIf="authService.loggedIn()" (click)="logOut()" class="-m-2 p-2 block font-medium text-gray-900 hover:text-red-500">Logout</a>
+                </div>
+            </div>
 
-      <div class="border-t border-gray-200 py-6 px-4">
-        <a class="-m-2 p-2 flex items-center">
-          <img src="https://tailwindui.com/img/flags/flag-canada.svg" alt="" class="w-5 h-auto block flex-shrink-0">
-          <span class="ml-3 block text-base font-medium text-gray-900 hover:text-red-500">
+            <div class="border-t border-gray-200 py-6 px-4">
+                <a class="-m-2 p-2 flex items-center">
+                    <img src="https://tailwindui.com/img/flags/flag-canada.svg" alt="" class="w-5 h-auto block flex-shrink-0">
+                    <span class="ml-3 block text-base font-medium text-gray-900 hover:text-red-500">
             VN
           </span>
-          <span class="sr-only">, change currency</span>
-        </a>
-      </div>
+                    <span class="sr-only">, change currency</span>
+                </a>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <header class="relative bg-white z-50 font-medium ">
-    <!-- <p class="bg-indigo-600 h-10 flex items-center justify-center text-lg font-medium text-white px-4 sm:px-6 lg:px-8">
+    <header class="relative bg-white z-50 font-medium ">
+        <!-- <p class="bg-indigo-600 h-10 flex items-center justify-center text-lg font-medium text-white px-4 sm:px-6 lg:px-8">
       Get free delivery on orders over $100
     </p> -->
 
-    <nav aria-label="Top" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="border-b border-gray-200">
-        <div class="h-16 flex items-center">
-          <!-- Mobile menu toggle, controls the 'mobileMenuOpen' state. -->
-          <button (click)="toggleMenu()" type="button" class="bg-white p-2 rounded-md text-gray-400 lg:hidden">
+        <nav aria-label="Top" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-b border-gray-200">
+                <div class="h-16 flex items-center">
+                    <!-- Mobile menu toggle, controls the 'mobileMenuOpen' state. -->
+                    <button (click)="toggleMenu()" type="button" class="bg-white p-2 rounded-md text-gray-400 lg:hidden">
             <span class="sr-only">Open menu</span>
             <!-- Heroicon name: outline/menu -->
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -97,139 +98,124 @@
             </svg>
           </button>
 
-          <!-- Logo -->
-          <div class="ml-4 flex lg:ml-0">
-            <a href="#">
-              <span class="sr-only">Workflow</span>
-              <h1 class="hover:text-red-500">JShop</h1>
-              <!-- <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600" alt=""> -->
-            </a>
-          </div>
+                    <!-- Logo -->
+                    <div class="ml-4 flex lg:ml-0">
+                        <a href="#">
+                            <span class="sr-only">Workflow</span>
+                            <h1 class="hover:text-red-500">JShop</h1>
+                            <!-- <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600" alt=""> -->
+                        </a>
+                    </div>
 
-          <!-- Flyout menus -->
-          <div class="hidden lg:ml-8 lg:block lg:self-stretch">
-            <div class="h-full flex space-x-8">
+                    <!-- Flyout menus -->
+                    <div class="hidden lg:ml-8 lg:block lg:self-stretch">
+                        <div class="h-full flex space-x-8">
 
 
 
-              <a *ngFor="let item of listCategories" [routerLink]="['/products', item.name]"
-                class="hover:text-red-500 flex items-center text-lg font-medium text-gray-700">{{item.esname}}</a>
-              <a routerLink="/contact"
-                class="hover:text-red-500 flex items-center text-lg font-medium text-gray-700">Contact</a>
+                            <a *ngFor="let item of listCategories" [routerLink]="['/products', item.name]" class="hover:text-red-500 flex items-center text-lg font-medium text-gray-700">{{item.esname}}</a>
+                            <a routerLink="/contact" class="hover:text-red-500 flex items-center text-lg font-medium text-gray-700">Contact</a>
 
-              <a routerLink="/about"
-                class="hover:text-red-500 flex items-center text-lg font-medium text-gray-700">About Us</a>
-            </div>
-          </div>
+                            <a routerLink="/about" class="hover:text-red-500 flex items-center text-lg font-medium text-gray-700">About Us</a>
+                        </div>
+                    </div>
 
-          <div class="ml-auto flex items-center">
-            <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-              <a routerLink="/login" class="hover:text-red-500 text-lg font-medium text-gray-700">Sign in</a>
-              <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
-              <a routerLink="/signup" class="text-lg font-medium text-gray-700 hover:text-red-500">Create account</a>
-            </div>
+                    <div class="ml-auto flex items-center">
+                        <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6 cursor-pointer">
+                            <a *ngIf="!authService.loggedIn()" routerLink="/login" class="hover:text-red-500 text-lg font-medium text-gray-700">Sign in</a>
+                            <a *ngIf="authService.loggedIn()" (click)="logOut()" class="hover:text-red-500 text-lg font-medium text-gray-700">Logout</a>
+                            <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
+                            <a *ngIf="!authService.loggedIn()" routerLink="/signup" class="text-lg font-medium text-gray-700 hover:text-red-500">Create account</a>
+                        </div>
 
-            <div class="hidden lg:ml-8 lg:flex">
-              <a class="text-gray-700 hover:text-red-500 flex items-center">
-                <img src="https://cdn-icons-png.flaticon.com/512/330/330202.png" alt=""
-                  class="w-5 h-auto block flex-shrink-0">
-                <span class="ml-3 block text-lg font-medium">
+                        <div class="hidden lg:ml-8 lg:flex">
+                            <a class="text-gray-700 hover:text-red-500 flex items-center">
+                                <img src="https://cdn-icons-png.flaticon.com/512/330/330202.png" alt="" class="w-5 h-auto block flex-shrink-0">
+                                <span class="ml-3 block text-lg font-medium">
                   VN
                 </span>
-                <span class="sr-only">, change currency</span>
-              </a>
-            </div>
+                                <span class="sr-only">, change currency</span>
+                            </a>
+                        </div>
 
-            <!-- Search -->
-            <div class="flex lg:ml-6">
-              <a class="p-2 text-gray-400 hover:text-red-500 ">
-                <span class="sr-only">Search</span>
-                <!-- Heroicon name: outline/search -->
-                <svg class="w-6 h-6" (click)="toggleModal()" xmlns="http://www.w3.org/2000/svg" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <!-- Search -->
+                        <div class="flex lg:ml-6">
+                            <a class="p-2 text-gray-400 hover:text-red-500 ">
+                                <span class="sr-only">Search</span>
+                                <!-- Heroicon name: outline/search -->
+                                <svg class="w-6 h-6" (click)="toggleModal()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
-              </a>
-            </div>
+                            </a>
+                        </div>
 
-            <!-- Cart -->
-            <div class="ml-4 flow-root lg:ml-6">
-              <a routerLink="/cart" class="group -m-2 p-2 flex items-center hover:text-red-500">
-                <!-- Heroicon name: outline/shopping-bag -->
-                <svg class="flex-shrink-0 h-6 w-6 text-gray-400 hover:text-red-500" xmlns="http://www.w3.org/2000/svg"
-                  fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <!-- Cart -->
+                        <div class="ml-4 flow-root lg:ml-6">
+                            <a routerLink="/cart" class="group -m-2 p-2 flex items-center hover:text-red-500">
+                                <!-- Heroicon name: outline/shopping-bag -->
+                                <svg class="flex-shrink-0 h-6 w-6 text-gray-400 hover:text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
-                <!-- <span class="ml-2 text-lg font-medium text-gray-700 group-hover:text-gray-800">{{totalItem}}</span> -->
-                <span class="sr-only">items in cart, view bag</span>
-              </a>
+                                <!-- <span class="ml-2 text-lg font-medium text-gray-700 group-hover:text-gray-800">{{totalItem}}</span> -->
+                                <span class="sr-only">items in cart, view bag</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </header>
+        </nav>
+    </header>
 </div>
 
 <!--  -->
-<div *ngIf="showModal"
-  class="z-index-full overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
-  <div class="relative w-auto my-6 mx-auto max-w-3xl">
-    <!--content-->
-    <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-      <!--header-->
-      <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-        <h3 class="text-3xl font-semibold">
-          Search
-        </h3>
-        <button
-          class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-          (click)="toggleModal()">
+<div *ngIf="showModal" class="z-index-full overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+    <div class="relative w-auto my-6 mx-auto max-w-3xl">
+        <!--content-->
+        <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+            <!--header-->
+            <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                <h3 class="text-3xl font-semibold">
+                    Search
+                </h3>
+                <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" (click)="toggleModal()">
           <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
             <i class="fas fa-close">x</i>
           </span>
         </button>
-      </div>
-      <!--body-->
-      <div class="relative p-6 flex-auto">
-        <div class="flex items-center justify-center px-5 py-5">
-          <div
-            class="w-full mx-auto rounded-xl bg-gray-100 shadow-sm p-10 text-gray-800 relative overflow-hidden resize-x min-w-min max-w-3xl">
-            <div class="relative mt-1">
-              <input type="text" [autofocus]="true"
-                class="w-full pl-3 pr-10 py-2 border-2 border-gray-200 rounded-xl hover:border-gray-300 focus:outline-none focus:border-blue-500 transition-colors"
-                placeholder="Search..." [(ngModel)]="textsearch">
-              <button
-                class="block w-7 h-7 text-center text-xl leading-0 absolute top-2 right-2 text-gray-400 focus:outline-none hover:text-gray-900 transition-colors"><i
+            </div>
+            <!--body-->
+            <div class="relative p-6 flex-auto">
+                <div class="flex items-center justify-center px-5 py-5">
+                    <div class="w-full mx-auto rounded-xl bg-gray-100 shadow-sm p-10 text-gray-800 relative overflow-hidden resize-x min-w-min max-w-3xl">
+                        <div class="relative mt-1">
+                            <input type="text" [autofocus]="true" class="w-full pl-3 pr-10 py-2 border-2 border-gray-200 rounded-xl hover:border-gray-300 focus:outline-none focus:border-blue-500 transition-colors" placeholder="Search..." [(ngModel)]="textsearch">
+                            <button class="block w-7 h-7 text-center text-xl leading-0 absolute top-2 right-2 text-gray-400 focus:outline-none hover:text-gray-900 transition-colors"><i
                   class="mdi mdi-magnify"></i></button>
+                        </div>
+                        <div class="absolute top-0 left-0 w-full h-2 flex">
+                            <div class="h-2 bg-blue-500 flex-1"></div>
+                            <div class="h-2 bg-red-500 flex-1"></div>
+                            <div class="h-2 bg-yellow-500 flex-1"></div>
+                            <div class="h-2 bg-blue-500 flex-1"></div>
+                            <div class="h-2 bg-green-500 flex-1"></div>
+                            <div class="h-2 bg-red-500 flex-1"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="absolute top-0 left-0 w-full h-2 flex">
-              <div class="h-2 bg-blue-500 flex-1"></div>
-              <div class="h-2 bg-red-500 flex-1"></div>
-              <div class="h-2 bg-yellow-500 flex-1"></div>
-              <div class="h-2 bg-blue-500 flex-1"></div>
-              <div class="h-2 bg-green-500 flex-1"></div>
-              <div class="h-2 bg-red-500 flex-1"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--footer-->
-      <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-        <button
-          class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-          type="button" (click)="toggleModal()">
+            <!--footer-->
+            <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="toggleModal()">
           Close
         </button>
-        <button
-          class="bg-emerald-500 text-green-500 active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-          type="button" (click)="toggleModal()" [routerLink]="['/search',textsearch]" >
+                <button class="bg-emerald-500 text-green-500 active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="toggleModal()"
+                    [routerLink]="['/search',textsearch]">
           Search
         </button>
-      </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <div *ngIf="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>

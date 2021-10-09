@@ -4,6 +4,8 @@
         <div class="w-full px-24 z-10">
             <h1 class="text-5xl font-bold text-left tracking-wide">Keep it special</h1>
             <p class="text-3xl my-4">Capture your personal memory in unique way, anywhere.</p>
+            <a [routerLink]="['/']" routerLinkActive="router-link-active" class="bg-transparent mr-auto hover:bg-yellow-300 text-yellow-300 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-yellow-300 hover:border-transparent">
+                Shop now</a>
         </div>
         <div class="bottom-0 absolute p-4 text-center right-0 left-0 flex justify-center space-x-4">
             <span>
@@ -33,10 +35,10 @@
             </p>
             <form action="" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto" (submit)="onLoginSubmit()">
                 <div class="pb-2 pt-4">
-                    <input [(ngModel)]="email" name="email" type="email" name="email" id="email" placeholder="Email" class="block w-full p-2 text-lg rounded-sm bg-black">
+                    <input [(ngModel)]="email" name="email" type="email" name="email" id="email" placeholder="Email" class=" bg-gray-200  text-black border-collapse block w-full p-2 text-lg rounded-sm ">
                 </div>
                 <div class="pb-2 pt-4">
-                    <input [(ngModel)]="password" name="password" class="block w-full p-2 text-lg rounded-sm bg-black" type="password" name="password" id="password" placeholder="Password">
+                    <input [(ngModel)]="password" name="password" class="bg-gray-200 block w-full p-2 text-lg text-black border-collapse  rounded-sm " type="password" name="password" id="password" placeholder="Password">
                 </div>
                 <div class="flex w-fullmx-auto justify-between">
 

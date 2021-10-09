@@ -87,5 +87,11 @@ export class CartComponent implements OnInit {
     this.couponString = '0đ'
     this.total()
   }
-
+  checkout(){
+    if(window.confirm('check out!')== true){
+      this.cartService.clearCart()
+      this.items = []
+    }
+    
+  }
 }

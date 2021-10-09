@@ -6,6 +6,9 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+
+
+
 router.post('/register', ctrlUser.register)
 const config = require('./../database/db');
 
@@ -17,35 +20,57 @@ router.get('*', function(req, res, next) {
     next()
 })
 router.post('/login', function(req, res, next) {
-    var { email, passwordUser } = req.body;
-    console.log("chuan bi tim ... ")
-    User.findOne({ email: email }, (error, useradmin) => {
-        console.log("dang tim...")
-        if (useradmin) {
-            bcrypt.compare(passwordUser, useradmin.password, (error, same) => {
-                if (same) {
-                    req.session.userId = useradmin._id
-                    const token = jwt.sign({ data: useradmin }, config.secret, {
-                        expiresIn: 604800 // 1 week
-                    });
+        var { email, passwordUser } = req.body;
+        console.log("chuan bi tim ... ")
+        User.findOne({ email: email }, (error, useradmin) => {
+            console.log("dang tim...")
+            if (useradmin) {
+                bcrypt.compare(passwordUser, useradmin.password, (error, same) => {
+                    if (same) {
+                        req.session.userId = useradmin._id
+                        const token = jwt.sign({ data: useradmin }, config.secret, {
+                            expiresIn: 604800 // 1 week
+                        });
 
-                    res.json({
-                        success: true,
-                        token: `Bearer ${token}`,
-                        user: {
-                            id: useradmin._id,
-                            username: useradmin.username,
-                            email: useradmin.email
-                        }
-                    });
-                    console.log("token: ", token)
-                } else {
-                    return res.json({ success: false, msg: 'User not found' });
-                }
-            })
-        } else
-        // res.redirect('/login')
-            console.log("login false 2")
+                        res.json({
+                            success: true,
+                            token: `Bearer ${token}`,
+                            user: {
+                                id: useradmin._id,
+                                username: useradmin.username,
+                                email: useradmin.email
+                            }
+                        });
+                        console.log("token: ", token)
+                    } else {
+                        return res.json({ success: false, msg: 'User not found' });
+                    }
+                })
+            } else
+            // res.redirect('/login')
+                console.log("login false 2")
+        })
+    })
+    // Get all user
+router.route('/all').get((req, res) => {
+        User.find((error, data) => {
+            if (error) {
+                return next(error);
+            } else {
+                res.json(data);
+            }
+        })
+    })
+    // Delete user
+router.route('/delete-user/:id').delete((req, res, next) => {
+    User.findByIdAndRemove(req.params.id, (error, data) => {
+        if (error) {
+            return next(error);
+        } else {
+            res.status(200).json({
+                msg: data
+            });
+        }
     })
 })
 
@@ -68,7 +93,7 @@ router.get('/admin', function(req, res, next) {
 });
 router.get('/profile', passport.authenticate('jwt', { session: false }), (req, res, next) => {
     res.json({
-        user: {
+        User: {
             _id: req.user._id,
             username: req.user.username,
             email: req.user.email,
