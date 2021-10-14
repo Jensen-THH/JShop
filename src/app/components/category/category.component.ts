@@ -77,8 +77,9 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.GetAllProduct().subscribe(res => {
       this.hotproduct =res
-      this.bestproduct = this.hotproduct.filter((items: { category: string; }) => items.category === 'Quần');
-      this.hotproduct = this.hotproduct.slice(0,10)
+      // this.bestproduct = this.hotproduct.filter((items: { category: string; }) => items.category === 'Quần');
+      this.bestproduct = this.hotproduct.slice(0,10)
+      this.hotproduct = this.hotproduct.reverse().slice(0,10)
     })
   }
 }

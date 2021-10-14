@@ -4,10 +4,7 @@ import { Injectable } from '@angular/core';
 })
 
 export class CartService{
-   public items: any[] = [
- 
-     
-    ]
+   public items: any[] = JSON.parse(localStorage.getItem('cart')|| '{}')
     // addToCart(product: Hero) {
 
     //     this.items.push(product);
@@ -36,10 +33,12 @@ export class CartService{
           this.items.push(product)
           console.log('First product added to cart successfully!')
         }
-        
+        localStorage.setItem('cart',JSON.stringify(this.items))
+
       }
       removeItem(product_index:any){
         this.items.splice(product_index,1)
+        localStorage.setItem('cart',JSON.stringify(this.items))
       }
       getItems() {
         return this.items
@@ -47,6 +46,20 @@ export class CartService{
     
       clearCart() {
         this.items = [];
+        localStorage.setItem('cart',JSON.stringify(this.items))
         return this.items;
+      }
+      icr(i: any) {
+        if (this.items![i].count <= 19) {
+          this.items[i].count += 1
+        localStorage.setItem('cart',JSON.stringify(this.items))
+        }
+      }
+      dcr(i: any) {
+        if (this.items![i].count > 1) {
+          console.log(this.items)
+          this.items[i].count -= 1
+        localStorage.setItem('cart',JSON.stringify(this.items))
+      }
       }
 }

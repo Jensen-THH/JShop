@@ -28,7 +28,8 @@ export class ProductsComponent implements OnInit {
     // this.products = ALLPRODUCT.filter(items => items.category === producCategorydFromRoute);
     this.apiService.GetAllProduct().subscribe(res => {
       this.products = res
-      this.products = this.products.filter((items: { category: string; }) => items.category === producCategorydFromRoute);
+      this.products = this.products.filter((items: { category: string; }) => items.category === producCategorydFromRoute).reverse();
+      
     })
   }
 

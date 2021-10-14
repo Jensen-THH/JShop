@@ -1,5 +1,6 @@
 <div class="flex items-center w-full justify-center min-h-screen overflow-hidden overflow-y-scroll ">
     <div class="col-span-12 w-full ">
+        <input type="" name="" class="flex float-right p-2 m-4 border-green-600" [(ngModel)]="filterTerm" placeholder="Search" />
         <div class="overflow-auto lg:overflow-visible w-full">
             <table class="w-full table text-gray-400 border-separate space-y-6 text-lg">
                 <thead class="bg-gray-800 text-gray-500">
@@ -13,7 +14,7 @@
                 </thead>
                 <tbody>
 
-                    <tr class="bg-gray-800" *ngFor="let item of allproduct; let i = index">
+                    <tr class="bg-gray-800" *ngFor="let item of allproduct | filter :filterTerm ; let i = index">
                         <td class="p-3">
                             <div class="flex align-items-center">
                                 <img class="rounded-full h-12 w-12  object-cover" src="{{item.images[0]}}" alt="unsplash image">

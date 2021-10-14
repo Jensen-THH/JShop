@@ -1,13 +1,9 @@
 <div class="container mx-auto pb-4">
     <div class="flex items-center justify-center px-5 py-5">
-        <div
-            class="w-full mx-auto rounded-xl bg-gray-100 shadow-sm p-10 text-gray-800 relative overflow-hidden resize-x min-w-min max-w-3xl">
+        <div class="w-full mx-auto rounded-xl bg-gray-100 shadow-sm p-10 text-gray-800 relative overflow-hidden resize-x min-w-min max-w-3xl">
             <div class="relative mt-1">
-                <input type="text"
-                    class="w-full pl-3 pr-10 py-2 border-2 border-gray-200 rounded-xl hover:border-gray-300 focus:outline-none focus:border-blue-500 transition-colors"
-                    placeholder="Search..." [(ngModel)]="filterTerm">
-                <button
-                    class="block w-7 h-7 text-center text-xl leading-0 absolute top-2 right-2 text-gray-400 focus:outline-none hover:text-gray-900 transition-colors"><i
+                <input type="text" class="w-full pl-3 pr-10 py-2 border-2 border-gray-200 rounded-xl hover:border-gray-300 focus:outline-none focus:border-blue-500 transition-colors" placeholder="Search..." [(ngModel)]="filterTerm">
+                <button class="block w-7 h-7 text-center text-xl leading-0 absolute top-2 right-2 text-gray-400 focus:outline-none hover:text-gray-900 transition-colors"><i
                         class="mdi mdi-magnify"></i></button>
             </div>
             <div class="absolute top-0 left-0 w-full h-2 flex">
@@ -27,15 +23,11 @@
 
         <h3 class="text-2xl font-extrabold text-gray-900">Fashions</h3>
         <div class="grid gap-6 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
-            <div *ngFor="let item of products | filter :filterTerm"
-                class="cursor-pointer bg-gray-100 w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
+            <div *ngFor="let item of products | filter :filterTerm" class="cursor-pointer bg-gray-100 w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
                 <div class="flex div-two-img  lg:h-72 h-44 bg-center  w-full bg-contain bg-no-repeat">
-                    <img src="{{ item.images[0]}}" [routerLink]="['/product', item._id]"
-                        class="object-contain max-h-full w-full" alt="0" />
-                    <img src="{{ item.images[3]}}" [routerLink]="['/product', item._id]"
-                        class="img-2  object-contain max-h-full w-full" alt="0" />
-                    <button (click)="addToCart(item)"
-                        class="z-50 p-2 shadow-xl absolute bottom-0 right-0 xl:bottom-0 xl:right-0 rounded-full bg-red-600 text-white mx-5 -mb-4 hover:bg-red-500 focus:outline-none focus:bg-blue-500">
+                    <img src="{{ item.images[0]}}" [routerLink]="['/product', item._id]" class="object-contain max-h-full w-full" alt="0" />
+                    <img src="{{ item.images[1]}}" [routerLink]="['/product', item._id]" class="img-2  object-contain max-h-full w-full" alt="0" />
+                    <button (click)="addToCart(item)" class="z-50 p-2 shadow-xl absolute bottom-0 right-0 xl:bottom-0 xl:right-0 rounded-full bg-red-600 text-white mx-5 -mb-4 hover:bg-red-500 focus:outline-none focus:bg-blue-500">
                         <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path
@@ -45,13 +37,12 @@
                     </button>
                 </div>
                 <div [routerLink]="['/product', item._id]" class="hover:bg-red-100 px-5 py-3 cursor-pointer">
-                    <h3 style="max-width: 100ch;"
-                        class="text-gray-700 md:text-sm lg:text-base whitespace-nowrap overflow-hidden overflow-ellipsis  text-2xs mt-2 uppercase">
+                    <h3 style="max-width: 100ch;" class="text-gray-700 md:text-sm lg:text-base whitespace-nowrap overflow-hidden overflow-ellipsis  text-2xs mt-2 uppercase">
                         {{item.name}}</h3>
-                        <span class="mt-2 text-red-500">{{item.price.sale}}</span>
-                    <span class="text-gray-500 line-through float-right " *ngIf="item.price.old != '0'" >{{item.price.old}}</span>
+                    <span class="mt-2 text-red-500">{{item.price.sale}}</span>
+                    <span class="text-gray-500 line-through float-right " *ngIf="item.price.old != '0'">{{item.price.old}}</span>
                 </div>
-              
+
             </div>
 
         </div>

@@ -36,6 +36,7 @@ import { EditProductComponent } from './backend/components/edit-product/edit-pro
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './service/auth.service';
+import { AddImageComponent } from './backend/components/add-image/add-image.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +67,7 @@ import { AuthService } from './service/auth.service';
     CardTableComponent,
     AddProductComponent,
     EditProductComponent,
+    AddImageComponent,
   ],
   imports: [
     BrowserModule,

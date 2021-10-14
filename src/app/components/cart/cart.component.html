@@ -18,7 +18,7 @@
                 <tbody>
                     <tr *ngFor="let item of items; ; let i = index">
                         <td class=" pb-4 md:table-cell">
-                            <a href="#">
+                            <a [routerLink]="['/product', item._id]">
                                 <img src="{{item.images[0]}}" class="lg:w-20 w-12 rounded" alt="Thumbnail">
                             </a>
                         </td>

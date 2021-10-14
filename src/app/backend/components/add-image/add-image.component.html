@@ -1,0 +1,19 @@
+<h1>Angular 12 Multiple Image Upload with Preview - ItSolutionStuff.com</h1>
+
+<form [formGroup]="myForm" (ngSubmit)="submit()">
+
+
+    <div class="form-group">
+        <label for="file">File</label>
+        <input formControlName="file" id="images" nam="images" type="file" class="form-control" multiple (change)="onFileChange($event)">
+        <!-- <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+            <div *ngIf="f.file.errors && f.file.errors.required">File is required.</div>
+        </div> -->
+    </div>
+    <div class="flex mx-auto">
+
+        <img *ngFor='let url of images' [src]="url" width="100px" style="margin: 3px;"> <br/>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>

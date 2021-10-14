@@ -7,13 +7,10 @@ const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 
-
-
-router.post('/register', ctrlUser.register)
 const config = require('./../database/db');
 
-
-// user login
+router.post('/register', ctrlUser.register)
+    // user login
 var bcrypt = require('bcrypt');
 router.get('*', function(req, res, next) {
     res.locals.userId = req.session.userId;

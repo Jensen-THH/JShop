@@ -7,11 +7,13 @@ import { ApiService } from './../../../service/api.service';
 })
 export class TablesComponent implements OnInit {
   allproduct : any 
+  filterTerm: any | undefined;
   constructor(private apiService: ApiService) { }
   
   ngOnInit(): void {
     this.apiService.GetAllProduct().subscribe(res=>{
       this.allproduct = res
+      this.allproduct = this.allproduct.reverse()
     })
   }
   deleteProduct(id:any,i:any){

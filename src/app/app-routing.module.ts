@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AddImageComponent } from './backend/components/add-image/add-image.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent , children :[
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'admin', component: AdminComponent, canActivate:[AuthGuard], children:[
+    {path: 'upload',component:AddImageComponent,canActivate:[AuthGuard]},
     { path: 'table', component: TablesComponent ,canActivate:[AuthGuard]} ,
     { path: 'add-product', component: AddProductComponent ,canActivate:[AuthGuard]},
     { path: 'dashboard', component: DashboardComponent ,canActivate:[AuthGuard]},
