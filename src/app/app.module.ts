@@ -37,6 +37,10 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './service/auth.service';
 import { AddImageComponent } from './backend/components/add-image/add-image.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { UserGuard } from './guards/user.guard';
+import { OrderComponent } from './backend/views/order/order.component';
+import { EditOrderComponent } from './backend/components/edit-order/edit-order.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +72,9 @@ import { AddImageComponent } from './backend/components/add-image/add-image.comp
     AddProductComponent,
     EditProductComponent,
     AddImageComponent,
+    CheckoutComponent,
+    OrderComponent,
+    EditOrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,7 +86,7 @@ import { AddImageComponent } from './backend/components/add-image/add-image.comp
     ReactiveFormsModule,
     FlashMessagesModule.forRoot(),
   ],
-  providers: [AuthGuard, AuthService],
+  providers: [AuthGuard, AuthService, UserGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

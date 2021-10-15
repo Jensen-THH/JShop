@@ -10,6 +10,8 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 export class UserDropdownComponent implements AfterViewInit {
 
   dropdownPopoverShow = false;
+  // user:any;
+  user = JSON.parse(localStorage.getItem('user') || '[]')
   @ViewChild("btnDropdownRef", { static: false })
   btnDropdownRef!: ElementRef;
   @ViewChild("popoverDropdownRef", { static: false })
@@ -42,6 +44,8 @@ export class UserDropdownComponent implements AfterViewInit {
   constructor(
     public authService: AuthService,
     private router: Router,
-    private flashMessage: FlashMessagesService) { }
+    private flashMessage: FlashMessagesService) { 
+      
+    }
 
 }

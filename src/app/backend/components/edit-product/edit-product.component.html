@@ -1,76 +1,90 @@
-<form class="w-full mx-auto max-w-lg p-5" [formGroup]="updateForm" (ngSubmit)="OnUpdate()">
+<div>
 
-    <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full md:w-full px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+    <form class="w-full mx-auto max-w-lg p-5" [formGroup]="updateForm">
+
+        <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-full px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
           Name
         </label>
-            <input formControlName="name" value="a" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="">
+                <input formControlName="name" value="a" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="">
+            </div>
+
+
+
         </div>
-
-
-
-    </div>
-    <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full md:w-full px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-image">
+        <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-full px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-image">
       Image
     </label>
-            <input formControlName="images" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-image" type="text" placeholder="">
-            <!-- <input formControlName="image" type="file" class="w-full text-gray-700 px-3 py-2 border rounded" id="gird-image" />       -->
-        </div>
+                <label for="file">File</label>
+                <input id="images" name="images" type="file" class="form-control" multiple (change)="onFileChange($event)">
+                <!-- <input formControlName="images" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-image" type="text" placeholder=""> -->
+            </div>
+            <div class="flex flex-wrap  max-w-full">
+                <div class="relative" *ngFor="let item of images; let i = index">
+                    <button class="absolute top-0" (click)="deleteImage(i,'images')" *ngIf="item">delete</button>
+                    <img style="max-width: 100px; margin: 5px;" src="{{item}}" alt="{{item}}">
+                </div>
+                <div class="relative" *ngFor="let item of newimages; let i = index">
+                    <button class="absolute top-0" (click)="deleteImage(i,'newimages')" *ngIf="item">delete</button>
+                    <img style="max-width: 100px; margin: 5px;" src="{{item}}" alt="{{item}}">
+                </div>
+            </div>
 
-    </div>
-    <div formGroupName="price" class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-sale-name">
+        </div>
+        <div formGroupName="price" class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-sale-name">
             Sale Price
           </label>
-            <input formControlName="sale" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-sale-name" type="number" placeholder="">
-        </div>
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-old-name">
+                <input formControlName="sale" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-sale-name" min="1" max="99999999999" type="number" placeholder="">
+            </div>
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-old-name">
             Old Price
           </label>
-            <input formControlName="old" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-old-name" type="number" placeholder="">
-        </div>
+                <input formControlName="old" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-old-name" min="1" max="99999999999" type="number" placeholder="">
+            </div>
 
-    </div>
-    <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full md:w-full px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-des-name">
+        </div>
+        <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-full px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-des-name">
            Descriptions
           </label>
-            <textarea formControlName="description" id="grid-des-name" class="bg-gray-200 w-full px-3 py-2 text-gray-700 border-gray-500 rounded-lg focus:outline-none focus:bg-white" rows="4"></textarea>
+                <textarea formControlName="description" id="grid-des-name" class="bg-gray-200 w-full px-3 py-2 text-gray-700 border-gray-500 rounded-lg focus:outline-none focus:bg-white" rows="4"></textarea>
+
+            </div>
 
         </div>
 
-    </div>
+        <div class="flex flex-wrap -mx-3 mb-2">
 
-    <div class="flex flex-wrap -mx-3 mb-2">
-
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
           Category
         </label>
-            <div class="relative">
-                <select formControlName="category" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                <div class="relative">
+                    <select formControlName="category" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
             <option>Áo</option>
             <option>Váy</option>
             <option>Đầm</option>
             <option>Quần</option>
           </select>
-                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-sku">
+            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-sku">
            Sku
         </label>
-            <input formControlName="sku" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-sku" type="text" placeholder="90210">
+                <input formControlName="sku" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-sku" type="text" placeholder="90210">
+            </div>
         </div>
-    </div>
-    <button type="submit" class="bg-blue-600 text-gray-200 text-lg rounded hover:bg-blue-500 px-6 py-3 focus:outline-none">Update</button>
-</form>
+        <button type="submit" (click)="OnUpdate()" class="bg-blue-600 text-gray-200 text-lg rounded hover:bg-blue-500 px-6 py-3 focus:outline-none">Update</button>
+    </form>
+</div>

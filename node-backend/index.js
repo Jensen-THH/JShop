@@ -4,11 +4,13 @@ let express = require('express'),
     cors = require('cors');
 mongoDb = require('./database/db')
 const multer = require("multer");
+const createError = require('http-errors');
 
 // const path = require('path');
 //   require('./model/users');
 const rtsIndex = require('./routes/index.routes')
 const productRoute = require('./routes/product.routes')
+const orderRoute = require('./routes/order.routes')
 const app = express();
 const mongoDburl = "mongodb+srv://jshop:03042001qwer@cluster0.fezty.mongodb.net/quanao"
 var expressSession = require('express-session');
@@ -49,6 +51,7 @@ app.get('/', (req, res) => {
 // API Root
 app.use(express.static('uploads'))
 app.use('/api', productRoute);
+app.use('/order', orderRoute);
 app.use('/apiuser', rtsIndex);
 
 // const cors = require("cors");

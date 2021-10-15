@@ -4,11 +4,17 @@ import { Injectable } from '@angular/core';
 })
 
 export class CartService{
-   public items: any[] = JSON.parse(localStorage.getItem('cart')|| '{}')
+   public items: any[] = JSON.parse(localStorage.getItem('cart')|| '[]')
+   public total :any;
+   public coupon :any;
     // addToCart(product: Hero) {
 
     //     this.items.push(product);
     //   }
+    setTotalCoupon(t:any,c:any){
+      this.total = t
+      this.coupon = c
+    }
       addToCart(product: any) {
         var numberr = 0
         console.log('cartService prod', this.items.length)

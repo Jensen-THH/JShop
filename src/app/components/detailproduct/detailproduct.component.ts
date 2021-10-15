@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ALLPRODUCT } from '../../mock-all-product';
 import { CartService } from '../../service/cart.service';
 import { ApiService } from '../../service/api.service';
+import { Product } from '../../service/product';
 
 @Component({
   selector: 'app-detailproduct',
@@ -11,13 +11,16 @@ import { ApiService } from '../../service/api.service';
 })
 export class DetailproductComponent implements OnInit {
   // sizes: string[] = ['S', 'M', 'L', 'XL']
-  product: any | undefined;
+  // product:  Product = new Product()
+  product:  any;
+  image: any;
 
   // selectedOption = this.sizes[1]
   constructor(
     private route: ActivatedRoute,
     private cartService: CartService,
     private apiService: ApiService,
+    // private productService: Product
   ) {
   }
 
@@ -25,9 +28,10 @@ export class DetailproductComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = String(routeParams.get('productId'));
     // this.product = ALLPRODUCT.find(product => product._id.$oid === productIdFromRoute);
-    this.product = this.apiService.GetOneProduct(productIdFromRoute).subscribe(
+    this.apiService.GetOneProduct(productIdFromRoute).subscribe(
       res => {
         this.product = res
+        this.image = this.product.images[0]
       }
     )
   }

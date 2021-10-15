@@ -11,18 +11,22 @@
 </a>
 <div class="min-w-48 z-50" #popoverDropdownRef>
     <div class="bg-white text-base z-50  py-2 list-none text-left rounded shadow-lg mt-1 min-w-48" [ngClass]="dropdownPopoverShow ? 'block' : 'hidden'">
-        <a [routerLink]="['/admin/profile']" routerLinkActive="router-link-active" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
-      Profile
+        <a *ngIf="user.email=='admin@gmail.com'" [routerLink]="['/admin/profile']" routerLinkActive="router-link-active" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+      Profile Admin
     </a>
-        <a class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
-      Another action
+        <a *ngIf="user.length!=0 && user.email!='admin@gmail.com'" [routerLink]="['/profile']" routerLinkActive="router-link-active" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+          Profile {{user.username}}
     </a>
-        <a class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
-      Something else here
-    </a>
+
         <div class="h-0 my-2 border border-solid border-blueGray-100"></div>
-        <a class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700" (click)="onLogoutClick()">
+        <a *ngIf="user.length!=0" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700" (click)="onLogoutClick()">
    Logout
+    </a>
+        <a *ngIf="user.length==0" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700" [routerLink]="['/login']" routerLinkActive="router-link-active">
+   Sign in
+    </a>
+        <a *ngIf="user.length==0" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700" [routerLink]="['/signup']" routerLinkActive="router-link-active">
+   Sign up
     </a>
     </div>
 </div>

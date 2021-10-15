@@ -59,6 +59,11 @@ export class ApiService {
     let API_URL = `${this.REST_API}/delete-product/${id}`;
     return this.httpClient.delete(API_URL, { headers: this.httpHeaders }).pipe(catchError(this.handleError))
   }
+  // delete images
+  deleteImages(nameimages: any): Observable<any> {
+    let API_URL = `${this.REST_API}/delete-images/${nameimages}`;
+    return this.httpClient.delete(API_URL, { headers: this.httpHeaders }).pipe(catchError(this.handleError))
+  }
   uploadImage(images:any){
     let API_URL = `${this.REST_API}/multiple`;
     return this.httpClient.post(API_URL, images, {responseType: "text"}).pipe(catchError(this.handleError))

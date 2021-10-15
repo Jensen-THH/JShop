@@ -9,24 +9,30 @@ import { CartService } from '../../service/cart.service';
 export class CartComponent implements OnInit {
   items: any;
   tongtien: string | undefined;
-  coupon = 0
   couponString = ''
   newtotal = 0
   t!: number
   subtotal = 0
+  public coupon = 0
   code_coupon = ''
-  endtotal: any | undefined;
+  public endtotal: any | undefined;
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
     // this.items = this.cartService.getItems()
-    this.items = JSON.parse(localStorage.getItem('cart')|| '{}')
+    this.items = JSON.parse(localStorage.getItem('cart')|| '[]')
     // console.log(this.items)
     this.total()
     this.submitCoupon(this.code_coupon)
   }
   format(x: any) {
     return (x + "đ").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+  }
+
+  // send total and coupon to cart service
+  setCT(){
+    console.log("c and t",this.endtotal,this.coupon)
+    this.cartService.setTotalCoupon(this.endtotal,this.coupon)
   }
   total() {
     let subtotal = 0

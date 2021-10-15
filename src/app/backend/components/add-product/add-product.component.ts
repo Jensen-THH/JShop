@@ -12,12 +12,12 @@ export class AddProductComponent implements OnInit {
 
   form: any
   productForm: any
-  constructor(public formBuilder: FormBuilder, private router: Router, 
+  constructor(public formBuilder: FormBuilder, private router: Router,
     private ngZone: NgZone, private apiService: ApiService) {
-      this.form = this.formBuilder.group({
-        images: ['']
-  
-      })
+    this.form = this.formBuilder.group({
+      images: ['']
+
+    })
     this.productForm = this.formBuilder.group({
       name: ['', Validators.required],
       price: this.formBuilder.group({
@@ -32,21 +32,21 @@ export class AddProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+
   }
   onFileChange(event: any) {
     if (event.target.files && event.target.files[0]) {
       this.form.patchValue({
-        images:  event.target.files
+        images: event.target.files
       });
       console.log(this.form.value);
       var URL = 'http://localhost:8000/api/'
-      this.images =[]
+      this.images = []
       var filesAmount = event.target.files.length;
       var listNameImages: any[] = []
       for (let i = 0; i < filesAmount; i++) {
 
-        listNameImages.push(URL+event.target.files[i].name)
+        listNameImages.push(URL + event.target.files[i].name)
         var reader = new FileReader();
         reader.onload = (event: any) => {
           this.images.push(event.target.result);
@@ -60,18 +60,22 @@ export class AddProductComponent implements OnInit {
     }
   }
   OnSubmit(): any {
+    var formInfo = this.productForm.value
+    if (this.form.value.images.length >= 2 && formInfo.name != '' && formInfo.description != ''
+      && formInfo.price.old != '' && formInfo.price.sale != '' && formInfo.sku != '' && formInfo.price.category != '') { 
+
     var formData: any = new FormData();
     for (let i = 0; i < this.form.value.images.length; i++) {
       formData.append("images", this.form.value.images[i])
     }
-    console.log(this.form.value);
+
     this.apiService.uploadImage(formData).subscribe(() => {
       console.log('success img')
     }, (err) => {
       console.log(err)
     })
 
-    
+
     this.apiService.AddProduct(this.productForm.value).subscribe(() => {
       console.log('added successfully')
       this.ngZone.run(() => {
@@ -80,6 +84,11 @@ export class AddProductComponent implements OnInit {
         console.log(err);
       })
     })
+  }
+  else{
+    window.alert('Vui lòng nhập đầy đủ thông tin và ít nhất 2 tấm hình. Xin cảm ơn!')
+  }
+
   }
 
 }

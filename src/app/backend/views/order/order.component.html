@@ -1,0 +1,37 @@
+<!-- component -->
+<div class="container">
+    <input type="" name="" class="flex float-right p-2 m-4 border-green-600 bg-green-600 shadow text-gray-50" [(ngModel)]="filterTerm" placeholder="Search" />
+
+    <table class="text-left w-full shadow">
+        <thead class="bg-green-600 flex text-gray-50 w-full rounded-lg">
+            <tr class="flex w-full text-white">
+                <th class="p-4 w-1/4">Name</th>
+                <th class="p-4 w-1/4">Email</th>
+                <th class="p-4 w-1/4">Address</th>
+                <th class="p-4 w-1/4">Phone</th>
+                <th class="p-4 w-1/4">Total</th>
+                <th class="p-4 w-1/4">Date</th>
+                <th class="p-4 w-1/4">Confirm</th>
+                <th class="p-4 w-1/4">Status</th>
+
+            </tr>
+        </thead>
+        <!-- Remove the nasty inline CSS fixed height on production and replace it with a CSS class — this is just for demonstration purposes! -->
+        <tbody class="bg-grey-light flex flex-col overflow-y-scroll w-full " style="height: 50vh;">
+            <tr class="text-gray-700 hover:bg-gray-200 flex w-full items-center justify-items-start border-b border-gray-200" *ngFor="let order of orders | filter :filterTerm ; let i = index">
+                <td class="p-4 w-1/4">{{order.name}}</td>
+                <td class="p-4 w-1/4">{{order.email}}</td>
+                <td class="p-4 w-1/4">{{order.address}}</td>
+                <td class="p-4 w-1/4">{{order.phone}}</td>
+                <td class="p-4 w-1/4">{{order.endtotal}}</td>
+                <td class="p-4 w-1/4">{{order.date}}</td>
+                <td class="p-4 w-1/4" *ngIf="order.confirm"> Đã xác nhận </td>
+                <td class="p-4 w-1/4" *ngIf="!order.confirm"> Chưa xác nhận </td>
+                <td class="p-4 w-1/4  inline-flex"><button [routerLink]="['/admin/edit-order',order._id]" routerLinkActive="router-link-active" class="bg-green-600 p-2 m-2 text-gray-50 rounded-lg">Sửa</button>
+                    <button class="bg-red-600 p-2 m-2 rounded-lg text-gray-50" (click)="deleteOrder(order._id,i)">Xóa</button> </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>

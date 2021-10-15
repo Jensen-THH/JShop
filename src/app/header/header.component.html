@@ -64,6 +64,8 @@
                     <a (click)="toggleMenu()" *ngIf="!authService.loggedIn()" routerLink="/signup" class="-m-2 p-2 block font-medium text-gray-900 hover:text-red-500">Create account</a>
                 </div>
                 <div class="flow-root">
+
+                    <app-user-dropdown class="block"></app-user-dropdown>
                     <a (click)="toggleMenu()" *ngIf="authService.loggedIn()" (click)="logOut()" class="-m-2 p-2 block font-medium text-gray-900 hover:text-red-500">Logout</a>
                 </div>
             </div>
@@ -122,10 +124,11 @@
 
                     <div class="ml-auto flex items-center">
                         <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6 cursor-pointer">
-                            <a *ngIf="!authService.loggedIn()" routerLink="/login" class="hover:text-red-500 text-lg font-medium text-gray-700">Sign in</a>
-                            <a *ngIf="authService.loggedIn()" (click)="logOut()" class="hover:text-red-500 text-lg font-medium text-gray-700">Logout</a>
+                            <app-user-dropdown class="block"></app-user-dropdown>
+                            <!-- <a *ngIf="!authService.loggedIn()" routerLink="/login" class="hover:text-red-500 text-lg font-medium text-gray-700">Sign in</a> -->
+                            <!-- <a *ngIf="authService.loggedIn()" (click)="logOut()" class="hover:text-red-500 text-lg font-medium text-gray-700">Logout</a> -->
                             <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
-                            <a *ngIf="!authService.loggedIn()" routerLink="/signup" class="text-lg font-medium text-gray-700 hover:text-red-500">Create account</a>
+                            <!-- <a *ngIf="!authService.loggedIn()" routerLink="/signup" class="text-lg font-medium text-gray-700 hover:text-red-500">Create account</a> -->
                         </div>
 
                         <div class="hidden lg:ml-8 lg:flex">
