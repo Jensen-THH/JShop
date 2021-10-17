@@ -24,7 +24,7 @@ export class ApiService {
   }
   // get all product
   public GetAllProduct() {
-    console.log('get api')
+    // console.log('get api')
     return this.httpClient.get(`${this.REST_API}/all`);
   }
   // err

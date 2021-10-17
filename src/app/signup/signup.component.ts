@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
     this.userForm.value.username != '' &&
     this.userForm.value.password != '' &&
     this.userForm.value.email != '' ){
-      console.log(this.userForm.value.email,this.userForm.value.password,this.userForm.value.username)
+      // console.log(this.userForm.value.email,this.userForm.value.password,this.userForm.value.username)
     this.userService.postUser(this.userForm.value).subscribe( 
       res => {
         this.showSucessMessage = true;
