@@ -13,7 +13,7 @@ export class UserService {
     email: '',
     password: ''
   };
-  REST_API = "http://localhost:8000/apiuser"
+  REST_API = "https://jshopvn.herokuapp.com/apiuser"
   constructor(private httpClient: HttpClient) { }
 
   postUser(user: User){
