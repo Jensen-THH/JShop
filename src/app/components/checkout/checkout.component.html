@@ -1,5 +1,5 @@
-<div  *ngIf="items!.length > 0; else elseBlock" class="h-screen grid grid-cols-3 mt-4 mb-4">
-    <div class="lg:col-span-2 col-span-3 bg-indigo-50 space-y-8 px-12">
+<div  *ngIf="items!.length > 0; else elseBlock" class=" bg-indigo-50 min-h-screen pt-9 h-auto grid grid-cols-3 pb-9">
+    <div class="lg:col-span-2 col-span-3 bg-indigo-50 space-y-8 px-5">
         <div class="mt-8 p-4 relative flex flex-col sm:flex-row sm:items-center bg-white shadow rounded-md">
             <div class="flex flex-row items-center border-b sm:border-b-0 w-full sm:w-auto pb-4 sm:pb-0">
                 <div class="text-yellow-500">
@@ -18,39 +18,39 @@
             <form id="payment-form" [formGroup]="orderForm">
                 <section>
                     <h2 class="uppercase tracking-wide text-lg font-semibold text-gray-700 my-2">Shipping & Billing Information</h2>
-                    <fieldset class="mb-3 bg-white shadow-lg rounded text-gray-600">
-                        <label class="flex border-b border-gray-200 h-12 py-3 items-center">
-                            <span class="text-right px-2">Name</span>
-                            <input formControlName="name" name="name" class="focus:outline-none px-3" placeholder="Try Odinsson" required="">
-                        </label>
-                        <label class="flex border-b border-gray-200 h-12 py-3 items-center">
-                            <span class="text-right px-2">Email</span>
-                            <input formControlName="email" name="email" type="email" class="focus:outline-none px-3" placeholder="try@example.com" required="">
-                        </label>
-                        <label class="flex border-b border-gray-200 h-12 py-3 items-center">
-                            <span class="text-right px-2">Address</span>
-                            <input formControlName="address" name="address" class="focus:outline-none px-3" placeholder="10 Street XYZ 654">
-                        </label>
-                        <label class="flex border-b border-gray-200 h-12 py-3 items-center">
-                            <span class="text-right px-2">Phone</span>
-                            <input formControlName="phone" name="phone" class="focus:outline-none px-3" placeholder="109871325206">
-                        </label>
-                        <label class="flex border-b border-gray-200 h-12 py-3 items-center">
-                            <span class="text-right px-2">City</span>
-                            <input formControlName="city" name="city" class="focus:outline-none px-3" placeholder="Hà Nội">
-                        </label>
-                        <label class="inline-flex w-2/4 border-gray-200 py-3">
-                            <span class="text-right px-2">District</span>
-                            <input formControlName="district" name="district" class="focus:outline-none px-3" placeholder="CA">
-                        </label>
-                        <label class="xl:w-1/4 xl:inline-flex py-3 items-center flex xl:border-none border-t border-gray-200 py-3">
-                            <span class="text-right px-2 xl:px-0 xl:text-none">ZIP</span>
-                            <input formControlName="zip" name="postal_code" class="focus:outline-none px-3" placeholder="98603">
-                        </label>
-                        <label class="flex border-t border-gray-200 h-12 py-3 items-center select relative">
-                            <span class="text-right px-2">Country</span>
-                            <div id="country" class="focus:outline-none px-3 w-full flex items-center">
-                                <select formControlName="country" name="country" class="border-none bg-transparent flex-1 cursor-pointer appearance-none focus:outline-none">
+                    <div class="mb-3 flex-wrap bg-white shadow-lg rounded text-gray-600">
+                        <div class="flex border-b border-gray-200 h-12 py-3 items-center">
+                            <span class="text-center px-2">Name</span>
+                            <input formControlName="name" name="name" class="w-full focus:outline-none px-3" placeholder="Try Odinsson" required="">
+                        </div>
+                        <div class="flex border-b border-gray-200 h-12 py-3 items-center">
+                            <span class="text-center px-2">Email</span>
+                            <input formControlName="email" name="email" type="email" class="focus:outline-none w-full px-3" placeholder="try@example.com" required="">
+                        </div>
+                        <div class="flex border-b border-gray-200 h-12 py-3 items-center">
+                            <span class="text-center px-2">Address</span>
+                            <input formControlName="address" name="address" class="focus:outline-none w-full px-3" placeholder="10 Street XYZ 654">
+                        </div>
+                        <div class="flex border-b border-gray-200 h-12 py-3 items-center">
+                            <span class="text-center px-2">Phone</span>
+                            <input formControlName="phone" name="phone" class="focus:outline-none w-full px-3" placeholder="109871325206">
+                        </div>
+                        <div class="flex border-b border-gray-200 h-12 py-3 items-center">
+                            <span class="text-center px-2">City</span>
+                            <input formControlName="city" name="city" class="focus:outline-none w-full px-3" placeholder="Hà Nội">
+                        </div>
+                        <div class="inline-flex w-2/4 border-gray-200 py-3">
+                            <span class="text-center px-2">District</span>
+                            <input formControlName="district" name="district" class="focus:outline-none w-full px-3" placeholder="CA">
+                        </div>
+                        <div class="xl:w-1/4 xl:inline-flex  items-center flex xl:border-none border-t border-gray-200 py-3">
+                            <span class="text-center px-2 xl:px-0 xl:text-none">ZIP</span>
+                            <input formControlName="zip" name="postal_code" class="focus:outline-none w-full px-3" placeholder="98603">
+                        </div>
+                        <div class="flex border-t border-gray-200 h-12 py-3 items-center select relative">
+                            <span class="text-center px-2">Country</span>
+                            <div id="country" class="focus:outline-none w-full px-3 flex items-center">
+                                <select formControlName="country" name="country" class="border-none bg-transparent flex-1 cursor-pointer appearance-none focus:outline-none w-full">
                                     <option value="VN">VN</option>
                                     <option value="AU">Australia</option>
                                     <option value="BE">Belgium</option>
@@ -74,31 +74,31 @@
                                     <option value="ES">Spain</option>
                                     <option value="TN">Tunisia</option>
                                     <option value="GB">United Kingdom</option>
-                                    <option value="US" selected="selected">United States</option>
+                                    <option value="US">United States</option>
                                 </select>
                             </div>
-                        </label>
-                    </fieldset>
+                        </div>
+                    </div>
                 </section>
 
                 <div class="rounded-md">
                     <section>
                         <h2 class="uppercase tracking-wide text-lg font-semibold text-gray-700 my-2">Payment Information</h2>
                         <fieldset class="mb-3 bg-white shadow-lg rounded text-gray-600">
-                            <label class="flex border-b border-gray-200 h-12 py-3 items-center">
-                        <span class="text-right px-2">Card</span>
-                        <input formControlName="card" name="card" class="focus:outline-none px-3 w-full" placeholder="Card number MM/YY CVC" required="">
-                    </label>
+                            <div class="flex border-b border-gray-200 h-12 py-3 items-center">
+                        <span class="text-center px-2">Card</span>
+                        <input formControlName="card" name="card" class="focus:outline-none  px-3 w-full" placeholder="Card number MM/YY CVC" required="">
+                    </div>
                         </fieldset>
                     </section>
                 </div>
-                <button (click)="onSumit()" class="mt-10 submit-button px-4 py-3 rounded-full bg-gray-800 text-white focus:ring focus:outline-none w-full text-xl font-semibold transition-colors">
+                <button (click)="onSumit()" class="mt-10 submit-button px-4 py-3 rounded-full bg-gray-800 text-white focus:ring focus:outline-none  w-full text-xl font-semibold transition-colors">
             ORDER
         </button>
             </form>
         </div>
     </div>
-    <div class="col-span-1 bg-white lg:block hidden">
+    <div class="col-span-1 h-auto bg-white lg:block hidden">
         <h1 class="py-6 border-b-2 text-xl text-gray-600 px-8">Order Summary</h1>
         <ul class="py-6 border-b space-y-6 px-8">
 

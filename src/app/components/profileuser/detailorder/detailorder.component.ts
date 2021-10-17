@@ -18,6 +18,7 @@ export class DetailorderComponent implements OnInit {
   endcofirm:any;
   orderForm!: FormGroup;
   orderId:any;
+  t:any;
   constructor(public formBuilder: FormBuilder, private router: Router,
     private ngZone: NgZone, private orderService: OrderService, private activatedRoute: ActivatedRoute) { }
 
@@ -76,6 +77,17 @@ export class DetailorderComponent implements OnInit {
       status: [false]
     })
 
+  }
+  format(x: any) {
+    return (x + "đ").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+  }
+  totalprice(price: any, count: any) {
+    let newString = price.replace(/,/g, "");
+    let String2 = newString.replace(/₫/g, "");
+    newString = parseInt(String2)
+    this.t = count * newString;
+    let total = this.format(this.t)
+    return total
   }
   onSumit(){
     this.orderService.updateOrder(this.orderId, this.orderForm.value).subscribe(() => {

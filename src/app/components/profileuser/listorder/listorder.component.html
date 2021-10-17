@@ -3,9 +3,16 @@
     <div *ngIf="notreceived.length!=0">
         <h1 class="text-xl text-gray-700"> Đơn hàng </h1>
 
-    <div  class="max-w-3xl w-full mx-auto "  *ngFor="let order of notreceived; let i = index">
+    <div  class="max-w-3xl w-full mx-auto  relative"  *ngFor="let order of notreceived; let i = index">
+        <button  *ngIf="!order.confirm" (click)="deleteOrder(order._id,i)"
+        class=" absolute top-0 right-4 flex float-right flex-no-shrink bg-red-600 hover:bg-red-600
+         px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium 
+         tracking-wider border-2 border-red-300 hover:border-red-500
+          text-white rounded-full transition ease-in duration-300">Hủy
+    </button>
+   
     <div class="flex flex-col" >
-        <div class="bg-white border border-white shadow-lg  rounded-3xl p-4 m-4">
+        <div class="bg-white border border-white shadow-lg  rounded-3xl p-4 xl:m-4 ">
             <div class="flex-none sm:flex">
                 <div class=" relative h-32 w-32   sm:mb-0 mb-3">
                     <img src="https://bmexpress.vn/wp-content/themes/bmexpress//assets/icons/theo-doi-don-hang-bmexpress.vn.svg"
@@ -20,15 +27,9 @@
                         </svg>
                     </a>
                 </div>
-                <div class="flex-auto sm:ml-5 justify-evenly relative">
+                <div class="flex-auto sm:ml-5 justify-evenly ">
                     
-                    <button  *ngIf="!order.confirm" (click)="deleteOrder(order._id,i)"
-                            class=" absolute top-0 right-4 flex float-right flex-no-shrink bg-red-600 hover:bg-red-600
-                             px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium 
-                             tracking-wider border-2 border-red-300 hover:border-red-500
-                              text-white rounded-full transition ease-in duration-300">Hủy
-                        </button>
-                       
+           
                     <div class="flex items-center justify-between sm:mt-2" >
                         <div class="flex items-center">
                             <div class="flex flex-col">
@@ -70,33 +71,38 @@
                             </svg>
                             <p class="">Thời gian giao hàng ước tính:{{order.timeship}}</p>
                         </div>
-                        <button *ngIf="order.confirm"
-                            class="flex-no-shrink bg-green-400 hover:bg-green-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-full transition ease-in duration-300" [routerLink]="['/profile/detail',order._id]" routerLinkActive="router-link-active">Đã xác nhận</button>
-                        <button *ngIf="!order.confirm"
-                        [routerLink]="['/profile/detail',order._id]" routerLinkActive="router-link-active"
-                            class="flex-no-shrink bg-yellow-600 hover:bg-yellow-500
-                             px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium 
-                             tracking-wider border-2 border-yellow-300 hover:border-yellow-500
-                              text-white rounded-full transition ease-in duration-300">Chưa được xác nhận
-                              
-                        </button>
-                        <button *ngIf="order.confirm && order.status && !order.endcofirm"
-                        [routerLink]="['/profile/detail',order._id]" routerLinkActive="router-link-active"
-                            class="flex-no-shrink bg-green-400 hover:bg-green-500
-                             px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium 
-                             tracking-wider border-2 border-green-300 hover:border-green-500
-                              text-white rounded-full transition ease-in duration-300">Đang giao hàng
-                              
-                        </button>
-                        <button *ngIf="order.confirm && !order.status && !order.endcofirm"
-                        [routerLink]="['/profile/detail',order._id]" routerLinkActive="router-link-active"
-                            class="flex-no-shrink bg-gray-400 hover:bg-gray-500
-                             px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium 
-                             tracking-wider border-2 border-gray-300 hover:border-gray-500
-                              text-white rounded-full transition ease-in duration-300">Đang lấy hàng 
-                              
-                        </button>
                     </div>
+                    <!-- status -->
+                    <div class="w-full  flex items-center justify-end mt-3">
+                   <div class="">
+                    <button *ngIf="order.confirm"
+                    class="flex-no-shrink mt-2 bg-green-400 hover:bg-green-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-full transition ease-in duration-300" [routerLink]="['/profile/detail',order._id]" routerLinkActive="router-link-active">Đã xác nhận</button>
+                <button *ngIf="!order.confirm"
+                [routerLink]="['/profile/detail',order._id]" routerLinkActive="router-link-active"
+                    class="flex-no-shrink bg-yellow-600 hover:bg-yellow-500
+                     px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium 
+                     tracking-wider border-2 border-yellow-300 hover:border-yellow-500
+                      text-white rounded-full transition ease-in duration-300">Chưa được xác nhận
+                      
+                </button>
+                <button *ngIf="order.confirm && order.status && !order.endcofirm"
+                [routerLink]="['/profile/detail',order._id]" routerLinkActive="router-link-active"
+                    class="mt-2 flex-no-shrink bg-green-400 hover:bg-green-500
+                     px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium 
+                     tracking-wider border-2 border-green-300 hover:border-green-500
+                      text-white rounded-full transition ease-in duration-300">Đang giao hàng
+                      
+                </button>
+                <button *ngIf="order.confirm && !order.status && !order.endcofirm"
+                [routerLink]="['/profile/detail',order._id]" routerLinkActive="router-link-active"
+                    class=" mt-2 flex-no-shrink bg-gray-400 hover:bg-gray-500
+                     px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium 
+                     tracking-wider border-2 border-gray-300 hover:border-gray-500
+                      text-white rounded-full transition ease-in duration-300">Đang lấy hàng 
+                      
+                </button>
+                   </div>
+                </div>
                 </div>
             </div>
         </div>

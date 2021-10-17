@@ -1,10 +1,10 @@
 <!-- component -->
-<div *ngIf="ordersl!=0 ;else elseBlock">
+<div *ngIf="ordersl!=0 ;else elseBlock" class="overflow-x-auto">
 
 
 <div *ngIf="notreceived.length!=0" class="container">
     <input type="" name="" class="flex float-right p-2 m-4 border-green-600 bg-green-600 shadow text-gray-50" [(ngModel)]="filterTerm" placeholder="Search" />
-    <h1 class="text-xl text-red-700 mt-8 font-bold"> DANH SÁCH ĐƠN HÀNG ĐANG CHỜ XỬ LÝ</h1>
+   <br>  <br><h1 class="xl:text-xl my-2  text-xs text-red-700 mt-8 font-bold "> DANH SÁCH ĐƠN HÀNG ĐANG CHỜ XỬ LÝ</h1>
     <table class="text-left w-full table-auto shadow">
         <thead class="bg-green-600 flex text-gray-50 w-full rounded-lg">
             <tr class="flex w-full text-white">
@@ -49,8 +49,8 @@
 
 <!-- component -->
 <div class="container" *ngIf="received.length!=0">
-    <input type="" name="" class="flex float-right p-2 m-4 border-green-600 bg-green-600 shadow text-gray-50" [(ngModel)]="filterTermre" placeholder="Search" />
-    <h1 class="text-xl text-green-700 mt-8 font-bold"> DANH SÁCH ĐƠN HÀNG ĐÃ ĐƯỢC GIAO THÀNH CÔNG</h1>
+    <input type="" name="" class=" block float-right p-2 m-4 border-green-600 bg-green-600 shadow text-gray-50" [(ngModel)]="filterTermre" placeholder="Search" />
+   <br> <br> <h1 class="xl:text-xl text-xs my-2 text-green-700 mt-8 font-bold block"> DANH SÁCH ĐƠN HÀNG ĐÃ ĐƯỢC GIAO THÀNH CÔNG</h1>
     <table class="text-left w-full table-auto shadow">
         <thead class="bg-green-600 flex text-gray-50 w-full rounded-lg">
             <tr class="flex w-full text-white">

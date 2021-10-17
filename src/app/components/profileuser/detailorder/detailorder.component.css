@@ -10,8 +10,8 @@ i {
     border-radius: 20px;
 }
 
-tr td:nth-child(n+4),
-tr th:nth-child(n+4) {
+tr td:nth-child(n+5),
+tr th:nth-child(n+5) {
     border-radius: 0 .625rem .625rem 0;
 }
 
@@ -19,3 +19,23 @@ tr td:nth-child(1),
 tr th:nth-child(1) {
     border-radius: .625rem 0 0 .625rem;
 }
+@media (min-width: 640px) {
+    .table tr {
+        border-radius: none !important;
+
+    }
+    
+    tr td:nth-child(n+5),
+    tr th:nth-child(n+5) {
+        border-radius:none;
+    }
+
+  }
+
+  td:not(:last-child) {
+    border-bottom: 0;
+  }
+
+  th:not(:last-child) {
+    border-bottom: 2px solid rgba(0, 0, 0, .1);
+  }
