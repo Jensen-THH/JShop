@@ -138,7 +138,7 @@ export class EditProductComponent implements OnInit {
         images:  this.file
       });
       // console.log('1:',this.form.value.images)
-      var URL = 'http://localhost:8000/api/'
+      var URL = 'https://jshopvn.herokuapp.com/api/'
       this.newimages =[]
       var filesAmount = event.target.files.length;
       
