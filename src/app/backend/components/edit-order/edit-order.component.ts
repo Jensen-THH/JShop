@@ -57,6 +57,8 @@ export class EditOrderComponent implements OnInit {
         listorder: this.order.listorder,
         card: this.order.card,
         confirm: this.order.confirm,
+        status: this.order.status,
+        endcofirm: this.order.endcofirm,
         zip: this.order.zip,
         timeship: this.order.timeship,
       })
@@ -77,13 +79,17 @@ export class EditOrderComponent implements OnInit {
       date: [''],
       listorder: [],
       timeship: [''],
-      confirm: [false]
+      confirm: [false],
+      endcofirm: [false],
+      status: [false]
     })
 
   }
   onSumit() {
 
     // upload order
+    if(this.orderForm.value.timeship != ''){
+
     this.orderService.updateOrder(this.getId, this.orderForm.value).subscribe(() => {
       if (this.orderForm.value.confirm == true) {
         window.alert('Xác nhận thành công!')
@@ -96,9 +102,11 @@ export class EditOrderComponent implements OnInit {
       console.log(err)
     })
   }
-  // else{
-  //   window.alert('Vui lòng nhập đầy đủ thông tin và ít nhất 2 tấm hình. Xin cảm ơn!')
-  // }
+  else{
+    window.alert('Vui lòng nhập đầy đủ thông tin và thời gian giao ship. Xin cảm ơn!')
+  }
+
+  }
 
 
 

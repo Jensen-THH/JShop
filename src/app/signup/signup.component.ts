@@ -14,7 +14,7 @@ export class SignupComponent implements OnInit {
   showSucessMessage!: boolean;
   serverErrorMessages!: string;
   userForm!: FormGroup
-  constructor(private userService: UserService, private formBuilder: FormBuilder, 
+  constructor(private userService: UserService, private formBuilder: FormBuilder, private router:Router,
     private ngZone: NgZone, ) { 
       this.userForm = this.formBuilder.group({
         username: ['',Validators.required],
@@ -30,11 +30,13 @@ export class SignupComponent implements OnInit {
     this.userForm.value.password != '' &&
     this.userForm.value.email != '' ){
       console.log(this.userForm.value.email,this.userForm.value.password,this.userForm.value.username)
-    this.userService.postUser(this.userForm.value).subscribe(
+    this.userService.postUser(this.userForm.value).subscribe( 
       res => {
         this.showSucessMessage = true;
         setTimeout(() => this.showSucessMessage = false, 4000);
         this.resetForm(this.userForm);
+        this.router.navigate(['/login']);
+        
       },
       err => {
         if (err.status === 422) {

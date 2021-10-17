@@ -7,7 +7,7 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class OrderService {
-  REST_API = "http://localhost:8000/order"
+  REST_API = "https://jshopvn.herokuapp.com/order"
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private httpClient: HttpClient) { }
   AddOrder(data: any): Observable<any> {
@@ -46,7 +46,6 @@ export class OrderService {
     return this.httpClient.get(API_URL, { headers: this.httpHeaders })
     .pipe(map((res: any) => {
       return res || {}
-
     }), catchError(this.handleError))
   }
 }

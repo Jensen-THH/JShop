@@ -1,4 +1,4 @@
-<div class="h-screen grid grid-cols-3 mt-4 mb-4">
+<div  *ngIf="items!.length > 0; else elseBlock" class="h-screen grid grid-cols-3 mt-4 mb-4">
     <div class="lg:col-span-2 col-span-3 bg-indigo-50 space-y-8 px-12">
         <div class="mt-8 p-4 relative flex flex-col sm:flex-row sm:items-center bg-white shadow rounded-md">
             <div class="flex flex-row items-center border-b sm:border-b-0 w-full sm:w-auto pb-4 sm:pb-0">
@@ -138,3 +138,9 @@
         </div>
     </div>
 </div>
+<ng-template #elseBlock>
+    <div class="flex items-center justify-center min-h-screen ">
+        <h1 class="text-black ">Nothing on cart</h1>
+        <button class="bg-green-600 px-2 py-1 rounded mx-10 text-white hover:bg-green-700 " [routerLink]="[ '/'] " routerLinkActive="router-link-active "> Shopping now </button>
+    </div>
+</ng-template>

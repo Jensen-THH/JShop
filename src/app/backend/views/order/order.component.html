@@ -1,37 +1,93 @@
 <!-- component -->
-<div class="container">
-    <input type="" name="" class="flex float-right p-2 m-4 border-green-600 bg-green-600 shadow text-gray-50" [(ngModel)]="filterTerm" placeholder="Search" />
+<div *ngIf="ordersl!=0 ;else elseBlock">
 
-    <table class="text-left w-full shadow">
+
+<div *ngIf="notreceived.length!=0" class="container">
+    <input type="" name="" class="flex float-right p-2 m-4 border-green-600 bg-green-600 shadow text-gray-50" [(ngModel)]="filterTerm" placeholder="Search" />
+    <h1 class="text-xl text-red-700 mt-8 font-bold"> DANH SÁCH ĐƠN HÀNG ĐANG CHỜ XỬ LÝ</h1>
+    <table class="text-left w-full table-auto shadow">
         <thead class="bg-green-600 flex text-gray-50 w-full rounded-lg">
             <tr class="flex w-full text-white">
-                <th class="p-4 w-1/4">Name</th>
-                <th class="p-4 w-1/4">Email</th>
-                <th class="p-4 w-1/4">Address</th>
-                <th class="p-4 w-1/4">Phone</th>
-                <th class="p-4 w-1/4">Total</th>
-                <th class="p-4 w-1/4">Date</th>
-                <th class="p-4 w-1/4">Confirm</th>
-                <th class="p-4 w-1/4">Status</th>
+                <th class="p-4 w-full">Name</th>
+                <!-- <th class="p-4 w-full">Email</th> -->
+                <th class="p-4 w-full">Address</th>
+                <th class="p-4 w-full">Phone</th>
+                <th class="p-4 w-full">Total</th>
+                <th class="p-4 w-full">Date</th>
+                <th class="p-4 w-full">Confirm</th>
+                <th class="p-4 w-full">Tools</th>
+                <th class="p-4 w-full">Status</th>
+                <th class="p-4 w-full">end</th>
 
             </tr>
         </thead>
         <!-- Remove the nasty inline CSS fixed height on production and replace it with a CSS class — this is just for demonstration purposes! -->
-        <tbody class="bg-grey-light flex flex-col overflow-y-scroll w-full " style="height: 50vh;">
-            <tr class="text-gray-700 hover:bg-gray-200 flex w-full items-center justify-items-start border-b border-gray-200" *ngFor="let order of orders | filter :filterTerm ; let i = index">
-                <td class="p-4 w-1/4">{{order.name}}</td>
-                <td class="p-4 w-1/4">{{order.email}}</td>
-                <td class="p-4 w-1/4">{{order.address}}</td>
-                <td class="p-4 w-1/4">{{order.phone}}</td>
-                <td class="p-4 w-1/4">{{order.endtotal}}</td>
-                <td class="p-4 w-1/4">{{order.date}}</td>
-                <td class="p-4 w-1/4" *ngIf="order.confirm"> Đã xác nhận </td>
-                <td class="p-4 w-1/4" *ngIf="!order.confirm"> Chưa xác nhận </td>
-                <td class="p-4 w-1/4  inline-flex"><button [routerLink]="['/admin/edit-order',order._id]" routerLinkActive="router-link-active" class="bg-green-600 p-2 m-2 text-gray-50 rounded-lg">Sửa</button>
+        <tbody class="bg-grey-light flex flex-col overflow-y-scroll w-full " style="height: 70vh;">
+            <tr class="text-gray-700 hover:bg-gray-200 flex w-full items-center justify-items-start border-b
+             border-gray-200" *ngFor="let order of notreceived | filter :filterTerm ; let i = index">
+                <td class="p-4 text-center w-full">{{order.name}}</td>
+                <!-- <td class="p-4 text-center w-full">{{order.email}}</td> -->
+                <td class="p-4 text-center w-full">{{order.address}}</td>
+                <td class="p-4 text-center w-full">{{order.phone}}</td>
+                <td class="p-4 text-center w-full">{{order.endtotal}}</td>
+                <td class="p-4 text-center w-full">{{order.date}}</td>
+                <td class="p-4  text-right w-full" *ngIf="order.confirm"> ✔ </td>
+                <td class="p-4  text-right w-full" *ngIf="!order.confirm"> ✘ </td>
+                <td class="p-4 text-center w-full items-end inline-flex"><button [routerLink]="['/admin/edit-order',order._id]" routerLinkActive="router-link-active" class="bg-green-600 p-2 m-2 text-gray-50 rounded-lg">Sửa</button>
                     <button class="bg-red-600 p-2 m-2 rounded-lg text-gray-50" (click)="deleteOrder(order._id,i)">Xóa</button> </td>
-
+                    <td class="p-4 text-center w-full text-green-600 font-bold" *ngIf="order.status && order.confirm"> Đang giao</td>
+                    <td class="p-4 text-center w-full text-red-600 font-bold" *ngIf="order.status && !order.confirm"> Chưa xác nhận</td>
+                    <td class="p-4 text-center w-full text-yellow-600 font-bold" *ngIf="!order.status && order.confirm">Đang lấy hàng</td>
+                    <td class="p-4 text-center w-full text-red-600 font-bold" *ngIf="!order.status && !order.confirm">Chưa xác nhận</td>
+                    <td class="p-4 text-center w-full text-green-600 font-bold" *ngIf="order.endcofirm">Đã nhận</td>
+                    <td class="p-4 text-center w-full text-red-600 font-bold" *ngIf="!order.endcofirm">Chưa nhận</td>
             </tr>
 
         </tbody>
     </table>
 </div>
+
+<!-- component -->
+<div class="container" *ngIf="received.length!=0">
+    <input type="" name="" class="flex float-right p-2 m-4 border-green-600 bg-green-600 shadow text-gray-50" [(ngModel)]="filterTermre" placeholder="Search" />
+    <h1 class="text-xl text-green-700 mt-8 font-bold"> DANH SÁCH ĐƠN HÀNG ĐÃ ĐƯỢC GIAO THÀNH CÔNG</h1>
+    <table class="text-left w-full table-auto shadow">
+        <thead class="bg-green-600 flex text-gray-50 w-full rounded-lg">
+            <tr class="flex w-full text-white">
+                <th class="p-4 w-full">Name</th>
+                <th class="p-4 w-full">Email</th>
+                <th class="p-4 w-full">Address</th>
+                <th class="p-4 w-full">Phone</th>
+                <th class="p-4 w-full">Total</th>
+                <th class="p-4 w-full">Date</th>
+                <th class="p-4 w-full">Tools</th>
+                <th class="p-4 w-full">Status</th>
+
+            </tr>
+        </thead>
+        <!-- Remove the nasty inline CSS fixed height on production and replace it with a CSS class — this is just for demonstration purposes! -->
+        <tbody class="bg-grey-light flex flex-col overflow-y-scroll w-full " style="height: 70vh;">
+            <tr class="text-gray-700 hover:bg-gray-200 flex w-full items-center justify-items-start
+            border-b border-gray-200" *ngFor="let order of received | filter :filterTermre ; let i = index">
+             <!-- border-b border-gray-200" *ngFor="let order of received  ; let i = index"> -->
+                <td class="p-4 text-center w-full">{{order.name}}</td>
+                <td class="p-4 text-center w-full">{{order.email}}</td>
+                <td class="p-4 text-center w-full">{{order.address}}</td>
+                <td class="p-4 text-center w-full">{{order.phone}}</td>
+                <td class="p-4 text-center w-full">{{order.endtotal}}</td>
+                <td class="p-4 text-center w-full">{{order.date}}</td>
+                <td class="p-4 text-center w-full items-end inline-flex"><button [routerLink]="['/admin/edit-order',order._id]" routerLinkActive="router-link-active" class="bg-green-600 p-2 m-2 text-gray-50 rounded-lg">Sửa</button>
+                    <button class="bg-red-600 p-2 m-2 rounded-lg text-gray-50" (click)="deleteOrder(order._id,i)">Xóa</button> </td>
+                <td class="p-4 text-center w-full text-green-600 font-bold">Đã nhận</td>
+     
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+</div>
+<ng-template #elseBlock>
+    <div class="flex items-center justify-center min-h-screen ">
+        <h1 class="text-black text-2xl text-center">Nothing on order</h1>
+    </div>
+</ng-template>

@@ -10,7 +10,7 @@ import { Product } from './product';
 
 export class ApiService {
 
-  REST_API = "http://localhost:8000/api"
+  REST_API = "https://jshopvn.herokuapp.com/api"
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private httpClient: HttpClient) { }
 

@@ -20,13 +20,16 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   onLoginSubmit() {
+    // console.log('xx')
     const user = {
       email: this.email,
       passwordUser: this.password,
     }
+    if(this.email !='' && this.password!=''){
 
     this.authService.authenticateUser(user).subscribe(data => {
-      console.log(data)
+      // console.log(data)
+
         if(data.success) {
           this.authService.storeUserData(data.token, data.user);
           this.flashMessage.show('You are now logged in', {cssClass: 'flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3 absolute top-0 right-0 left-0 text-center ', timeout: 5000});
@@ -38,10 +41,19 @@ export class LoginComponent implements OnInit {
           }
         } else {
           this.flashMessage.show(data.msg, {cssClass: 'bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded absolute top-0 right-0 left-0 text-center', timeout: 5000});
-          console.log('false')
+          
           this.router.navigate(['login']);
         }
+        // if(!data){
+        //   window.alert('no infomation of user!')
+        // }
+
     });
+  }
+  else{
+    window.alert('Vui lòng điền đầy đủ thông tin !')
+  }
+
   }
 
 }

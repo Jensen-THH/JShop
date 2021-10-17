@@ -41,6 +41,9 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { UserGuard } from './guards/user.guard';
 import { OrderComponent } from './backend/views/order/order.component';
 import { EditOrderComponent } from './backend/components/edit-order/edit-order.component';
+import { ProfileuserComponent } from './components/profileuser/profileuser.component';
+import { ListorderComponent } from './components/profileuser/listorder/listorder.component';
+import { DetailorderComponent } from './components/profileuser/detailorder/detailorder.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +78,9 @@ import { EditOrderComponent } from './backend/components/edit-order/edit-order.c
     CheckoutComponent,
     OrderComponent,
     EditOrderComponent,
+    ProfileuserComponent,
+    ListorderComponent,
+    DetailorderComponent,
   ],
   imports: [
     BrowserModule,

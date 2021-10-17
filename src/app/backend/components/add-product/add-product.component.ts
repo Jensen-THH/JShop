@@ -40,7 +40,7 @@ export class AddProductComponent implements OnInit {
         images: event.target.files
       });
       console.log(this.form.value);
-      var URL = 'http://localhost:8000/api/'
+      var URL = 'https://jshopvn.herokuapp.com/api/'
       this.images = []
       var filesAmount = event.target.files.length;
       var listNameImages: any[] = []

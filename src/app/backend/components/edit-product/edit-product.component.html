@@ -86,5 +86,8 @@
             </div>
         </div>
         <button type="submit" (click)="OnUpdate()" class="bg-blue-600 text-gray-200 text-lg rounded hover:bg-blue-500 px-6 py-3 focus:outline-none">Update</button>
+        <button [routerLink]="['/admin/table']"
+        class="bg-red-600 block float-right pl-5 text-gray-200 text-lg rounded hover:bg-red-500 px-6 py-3 focus:outline-none">Cancel</button>
     </form>
+
 </div>

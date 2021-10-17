@@ -67,6 +67,7 @@
 
                     <app-user-dropdown class="block"></app-user-dropdown>
                     <a (click)="toggleMenu()" *ngIf="authService.loggedIn()" (click)="logOut()" class="-m-2 p-2 block font-medium text-gray-900 hover:text-red-500">Logout</a>
+                    <a (click)="toggleMenu()" *ngIf="authService.loggedIn()"[routerLink]="['/profile']" routerLinkActive="router-link-active"  class="-m-2 p-2 block font-medium text-gray-900 hover:text-red-500">Profile</a>
                 </div>
             </div>
 

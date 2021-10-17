@@ -19,11 +19,14 @@ import { DetailproductComponent } from './components/detailproduct/detailproduct
 import { IndexComponent } from './components/index/index.component';
 import { ProductsComponent } from './components/products/products.component';
 import { SearchComponent } from './components/search/search.component';
+import { ProfileuserComponent } from './components/profileuser/profileuser.component';
 
 import { AuthGuard } from './guards/auth.guard';
 import { UserGuard } from './guards/user.guard';
 import { OrderComponent } from './backend/views/order/order.component';
 import { EditOrderComponent } from './backend/components/edit-order/edit-order.component';
+import { ListorderComponent } from './components/profileuser/listorder/listorder.component';
+import { DetailorderComponent } from './components/profileuser/detailorder/detailorder.component';
 
 const routes: Routes = [
   {
@@ -38,6 +41,11 @@ const routes: Routes = [
       { path: '', component: IndexComponent },
       { path: 'index', component: IndexComponent },
       { path: '', redirectTo: 'index', pathMatch: 'full' },
+      { path: 'profile', component: ProfileuserComponent, canActivate: [UserGuard],children:[
+        {path:'listorder',component:ListorderComponent},
+        {path:'detail/:id',component:DetailorderComponent},
+        {path:'', redirectTo: 'listorder', pathMatch: 'full'},
+      ] },
     ]
   },
   { path: 'login', component: LoginComponent },

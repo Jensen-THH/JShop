@@ -10,7 +10,7 @@ export class AuthService {
   authToken: any;
   user: any;
   isDev: boolean;
-  REST_API = "http://localhost:8000/apiuser"
+  REST_API = "https://jshopvn.herokuapp.com/apiuser"
   constructor(private httpClient: HttpClient) {
     this.isDev = true;  // Change to false before deployment
   }

@@ -90,6 +90,13 @@
                         <span class="text-right px-2">Card</span>
                         <input formControlName="card" name="card"  class="focus:outline-none px-3 w-full" required="">
                     </label>
+                           
+                        </fieldset>
+                    </section>
+                    <section>
+                        <h2 class="uppercase tracking-wide text-lg font-semibold text-gray-700 my-2">Time ship</h2>
+                        <fieldset class="mb-3 bg-white shadow-lg rounded text-gray-600">
+                           
                             <label class="flex border-b border-gray-200 h-12 py-3 items-center">
                         <span class="text-right px-2 inline-flex">Time</span>
                         <input formControlName="timeship" name="ship"  class="focus:outline-none px-3 w-full" required="">
@@ -97,12 +104,22 @@
                         </fieldset>
                     </section>
                     <label for="" class="uppercase tracking-wide text-lg font-semibold text-gray-700 my-2">Xác nhận đơn hàng</label>
-                    <input type="checkbox" class="p-2 m-2" formControlName="confirm">
+                    <input type="checkbox" class="p-2 m-2" formControlName="confirm"> <br>
+                    <label for="" class="uppercase tracking-wide text-lg font-semibold text-gray-700 my-2">Bắt đầu giao hàng</label>
+                    <input type="checkbox" class="p-2 m-2" formControlName="status">
+                    <div *ngIf="order.status && order.confirm && !order.endcofirm">
+
+                        <label for="" class="uppercase tracking-wide text-lg font-semibold text-gray-700 my-2">Khách đã nhận được hàng</label>
+                        <input type="checkbox" class="p-2 m-2" formControlName="endcofirm">
+                    </div>
+                    <h1 class="w-full text-gray-700 text-2xl font-bold" *ngIf="order.endcofirm"> Đã nhận hàng</h1>
+                    <h1 class="w-full text-gray-700 text-xl pt-5 font-bold" *ngIf="!order.endcofirm">Khách chưa nhận hàng</h1>
                 </div>
                 <button (click)="onSumit()" class="mt-10 submit-button px-4 py-3 rounded-full bg-gray-800 text-white focus:ring focus:outline-none w-full text-xl font-semibold transition-colors">
             Lưu
         </button>
             </form>
+
         </div>
     </div>
     <div class="col-span-1 bg-white lg:block hidden">
