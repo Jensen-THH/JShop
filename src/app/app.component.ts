@@ -2,7 +2,8 @@ import { Component,OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
   
-declare let gtag: Function;
+declare let gtag: Function; 
+// tslint:disable-next-line:ban-types
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
