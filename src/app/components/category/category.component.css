@@ -94,3 +94,16 @@
   }
   
 }
+/*  */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap');
+
+	* {
+		font-family: 'Noto Sans JP', sans-serif;
+	}
+
+	.bg-app {
+		background: url('https://images.unsplash.com/photo-1632162535418-97e98fcbc90d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80');
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    background-position: center; 
+	}

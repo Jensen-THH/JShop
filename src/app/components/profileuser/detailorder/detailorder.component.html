@@ -1,0 +1,120 @@
+<div class="w-full flex-wrap items-end h-52 xl:h-auto">
+    <div class="float-right p-5 block">
+
+        <h1 class="">Tổng tiền đơn hàng: <span class="font-bold"> {{endtotal}} </span></h1>
+        <h1 *ngIf="confirm" >Trạng thái:<span  class="text-green-600"> Đã xác nhận</span></h1>
+        <h1 *ngIf="status && confirm && !endcofirm" >Giao hàng:<span  class="text-green-600"> Đang giao hàng</span></h1>
+        <h1 *ngIf="status && confirm && endcofirm" >Giao hàng:<span  class="text-green-600"> Đã nhận</span></h1>
+        <h1 *ngIf="!status && confirm" >Giao hàng:<span  class="text-green-600"> Đang chờ lấy hàng</span></h1>
+        <h1 *ngIf="phone" >Số điện thoại người nhận:<span  class="text-green-600"> {{phone}}</span></h1>
+        <!-- <h1 *ngIf="!status" >Trạng thái:<span  class="text-green-600"> Đã xác nhận</span></h1> -->
+        <h1>Địa chỉ nhận hàng: <span  class="text-green-600"> {{address}}</span></h1>
+        <h1  *ngIf="!confirm">Trạng thái: <span  class="text-yellow-600"> Chưa xác nhận</span></h1>
+    </div>
+</div>
+<div class="flex-wrap hidden xl:block"> 
+    <button [routerLink]="['/profile']" routerLinkActive="router-link-active"  class="bg-green-400 text-gray-900  rounded-md px-2" >Back</button>
+<h1 class="pt-5 text-xl">DANH SÁCH SẢN PHẨM TRONG ĐƠN HÀNG</h1>
+<div class="flex items-center w-full justify-center ">
+    <div class="col-span-12 w-full ">
+        <div class="lg:overflow-visible w-full mx-auto">
+            <table class="w-full table table-auto text-gray-400 border-separate   space-y-6 text-lg">
+                <thead class="bg-green-600 text-white">
+                    <tr class="shadow">
+                        <th class="p-3 text-center">Name</th>
+                        <th class="p-3 text-center">Count</th>
+                        <th class="p-3 text-center">Price</th>
+                        <th class="p-3 text-center">Total</th>
+                        <th class="p-3 text-center">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="w-full">
+
+                    <tr class="bg-gray-200 hover:bg-gray-300 sm:table-row shadow cursor-pointer" [routerLink]="['/product',item._id]" routerLinkActive="router-link-active"  *ngFor="let item of allproduct ; let i = index">
+                        <td class="p-3 text-center">
+                            <div class="flex items-center">
+                                <img class="rounded-full h-12 w-12  object-cover" src="{{item.images[0]}}" alt="unsplash image">
+                                <div class="ml-3 mx-auto" style="width: 20ch;">
+                                    <div style="max-width: 15ch;" class="whitespace-nowrap overflow-hidden  overflow-ellipsis text-gray-900">{{item.name}}</div>
+                                    <div class="">sku :{{item.sku}}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-3 text-center text-gray-900">
+                            {{item.count}}
+                        </td>
+                        <td class="p-3 font-bold text-center text-gray-900">
+                            {{item.price.sale}}
+                        </td>
+                        <td class="p-3 font-bold text-center text-gray-900">
+                            {{totalprice(item.price.sale,item.count)}}
+                        </td>
+                        <td class="p-3 text-center">
+                            <span class="bg-green-400 text-gray-900 rounded-md px-2" *ngIf="order.confirm">Đã xác nhận</span>
+                            <span class="bg-yellow-400 text-gray-900  rounded-md px-2" *ngIf="!order.confirm">Chưa xác nhận</span>
+                        </td>
+                
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+<div class="xl:hidden block">
+    <table class="w-full table">
+        <thead class="bg-green-600 text-white">
+            <tr class="shadow">
+                <th class="p-3  text-xs text-center">Name</th>
+                <th class="p-3 text-xs text-center">Count</th>
+                <th class="p-3 text-xs text-center">Total</th>
+                <th class="p-3 text-xs text-center">Status</th>
+                
+            </tr>
+        </thead>
+        <tbody class="w-full">
+
+            <tr class="bg-gray-200  hover:bg-gray-300 sm:table-row shadow cursor-pointer" [routerLink]="['/product',item._id]" routerLinkActive="router-link-active"  *ngFor="let item of allproduct ; let i = index">
+                <td class="text-center">
+                    <div class="flex items-center">
+                        <img class="rounded-full h-5 w-5  object-cover" src="{{item.images[0]}}" alt="unsplash image">
+                        <div class="ml-3 mx-auto" style="width:10ch;">
+                            <div style="max-width: 15ch;" class="whitespace-nowrap text-xs overflow-hidden  overflow-ellipsis text-gray-900">{{item.name}}</div>
+                        </div>
+                    </div>
+                </td>
+                <td class="text-center text-gray-900">
+                    {{item.count}}
+                </td>
+                <td class="font-bold text-center text-xs text-gray-900">
+                    {{totalprice(item.price.sale,item.count)}}
+                </td>
+                <td class="text-center">
+                    <span class="bg-green-400 text-gray-900 rounded-md px-2" *ngIf="order.confirm">✔</span>
+                    <span class="bg-yellow-400 text-gray-900  rounded-md px-2" *ngIf="!order.confirm">✘</span>
+                </td>
+        
+
+        </tbody>
+    </table>
+</div>
+<div class="pt-5" *ngIf="confirm && status" >
+    <form [formGroup]="orderForm">
+        <div class="flex justify-between items-center">
+            <div class="">
+                <label class="xl:text-xl  font-bold">XÁC NHẬN ĐÃ NHẬN HÀNG:</label>
+                <input formControlName="endcofirm" type="checkbox" class="text-2xl p-5 m-3">
+            </div>
+            <div>
+                <button  
+                (click)="onSumit()"                     
+                    class="flex-no-shrink bg-green-400 hover:bg-green-500
+                     px-5 ml-4 py-2 xl:text-xl shadow-sm hover:shadow-lg font-medium 
+                     tracking-wider border-2 border-green-300 hover:border-green-500
+                      text-white rounded-full transition ease-in duration-300">Xác nhận
+                      
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

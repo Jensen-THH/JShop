@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CartService } from '../../service/cart.service';
-import {ALLPRODUCT} from '../../mock-all-product'
+// import {ALLPRODUCT} from '../../mock-all-product'
+import { ApiService } from './../../service/api.service';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
@@ -8,10 +9,13 @@ import {ALLPRODUCT} from '../../mock-all-product'
 })
 
 export class CategoryComponent implements OnInit {
-  hotproduct = ALLPRODUCT.slice(0,10);
-  bestproduct = ALLPRODUCT.filter(product =>{
-    return product.category2 == "best"
-  })
+
+  // hotproduct = ALLPRODUCT.slice(0,10);
+  // bestproduct = ALLPRODUCT.filter(product =>{
+  //   return product.category2 == "best"
+  // })
+  hotproduct : any =[];
+  bestproduct : any =[]
   category = [
     { name: 'Áo', description: 'Áo siêu đẹp', imgsrc: 'https://product.hstatic.net/200000000131/product/trang-9_ec4c29eb591940cf80534125c76d2ac6_grande.jpg' },
     { name: 'Váy', description: 'Váy siêu đẹp', imgsrc: 'https://product.hstatic.net/200000000131/product/den-4_6b7882c3b3a340f2be2fa5e807b15243_grande.jpg' },
@@ -69,7 +73,13 @@ export class CategoryComponent implements OnInit {
     window.alert('Your product has been added to the cart!');
     console.log(this.cartService.getItems())
   }
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private apiService: ApiService) { }
   ngOnInit(): void {
+    this.apiService.GetAllProduct().subscribe(res => {
+      this.hotproduct =res
+      // this.bestproduct = this.hotproduct.filter((items: { category: string; }) => items.category === 'Quần');
+      this.bestproduct = this.hotproduct.slice(0,10)
+      this.hotproduct = this.hotproduct.reverse().slice(0,10)
+    })
   }
 }

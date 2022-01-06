@@ -1,7 +1,8 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CartService } from 'src/app/service/cart.service';
+import { CartService } from './../../service/cart.service';
 import { ALLPRODUCT } from '../../mock-all-product';
+import { ApiService } from './../../service/api.service';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -32,7 +33,7 @@ export class SearchComponent implements OnInit, OnChanges {
     return list
   };
 
-  constructor(private route: ActivatedRoute, private router: Router, private cartService: CartService) {
+  constructor(private route: ActivatedRoute, private router: Router, private cartService: CartService, private apiService : ApiService) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
   addToCart(product: any) {
@@ -47,7 +48,9 @@ export class SearchComponent implements OnInit, OnChanges {
     this.search = this.producCategorydFromRoute
     this.filterTerm = this.producCategorydFromRoute
     // this.products = ALLPRODUCT.filter(items=> items.category === producCategorydFromRoute);
-    this.products = ALLPRODUCT
+    this.apiService.GetAllProduct().subscribe(res=>{
+      this.products = res
+    })
     // this.products = this.filterproduct(ALLPRODUCT, this.producCategorydFromRoute)
   }
   ngOnChanges(changes: SimpleChanges): void {
