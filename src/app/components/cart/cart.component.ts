@@ -79,10 +79,12 @@ export class CartComponent implements OnInit {
   }
 
   removeItem(i: any) {
+    
     this.cartService.removeItem(i)
     this.items.splice(i,1)
     this.total()
     this.submitCoupon(this.code_coupon)
+    
   }
   submitCoupon(code_coupon: any) {
     if (code_coupon == '90off') {
@@ -102,9 +104,11 @@ export class CartComponent implements OnInit {
     this.total()
   }
   checkout() {
+
     if (window.confirm('check out!') == true) {
       this.cartService.clearCart()
       this.items = []
+
     
     }
 

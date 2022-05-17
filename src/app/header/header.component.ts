@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit , OnChanges {
   showMenu = false
   textsearch = ''
   showModal = false;
-  public totalItem: any 
+  totalItem!: number; 
   listCategories : any[] = [
     {name:"Áo" ,esname :'Shirt'},
     {name:"Váy",esname :'Skirt'},
@@ -34,10 +34,18 @@ export class HeaderComponent implements OnInit , OnChanges {
     // this.totalItem =  this.cartService.getItems().length
     // console.log(this.totalItem, ' in cart')
   }
+  dataProduct : any = []
   ngOnInit(): void {
     // this.totalItem =  this.cartService.getItems()
     // this.totalItem = this.totalItem.length
-    this.totalItem = this.cartService.getItems().length
+    this.cartService.getProductData().subscribe(res=>{
+      // this.dataProduct = this.cartService.getProductData()
+      this.totalItem = 0
+      res.forEach((ele:any)=>{
+        this.totalItem += ele.count
+      })
+    })
+
   }
   
   // toggleMen(){
